@@ -1,0 +1,40 @@
+<!--
+  * 顶部
+  * @author shiloh
+  * @date 2024/7/16 17:14
+-->
+<template>
+  <q-header
+    elevated
+    class="bg-primary text-white"
+    height-hint="98"
+  >
+    <q-toolbar>
+      <q-btn
+        dense
+        flat
+        round
+        icon="menu"
+        @click="sidebarStore.toggleCollapsed()"
+      />
+      <q-toolbar-title> System Name</q-toolbar-title>
+      <q-avatar class="q-mr-md">
+        <img
+          src="src/assets/avatar.jpg"
+          alt="User Avatar"
+        />
+      </q-avatar>
+      <span class="text-bold">The Username</span>
+    </q-toolbar>
+  </q-header>
+</template>
+
+<script setup lang="ts">
+  import { useSidebarStore } from 'stores/sidebar'
+
+  const sidebarStore = useSidebarStore()
+
+  defineOptions({ name: 'HeaderView' })
+</script>
+
+<style scoped></style>
