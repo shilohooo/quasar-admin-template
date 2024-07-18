@@ -4,7 +4,6 @@ import { Menu, menuList, MenuType } from 'src/router/routes/menu.data'
 // 在 Vue3 中，如果需要根据菜单配置或者后台接口数据生成动态路由，则要先将对应的组件全部导入进来
 // 然后通过菜单的某个字段值（如：component）去匹配
 const dynamicRoutesMap = import.meta.glob('/src/views/**/*.vue')
-console.log('dynamicRoutesMap', dynamicRoutesMap)
 
 const home: RouteRecordRaw = {
   path: '/',
@@ -34,16 +33,17 @@ function generateDynamicRoutes(menus: Menu[]) {
     if (menu.path) {
       dynamicRoutes.push({
         path: menu.path,
-        name: menu.name ?? menu.path,
-        component: dynamicRoutesMap[`/src/views/${menu.component}.vue`]
+        name: menu.label ?? menu.path,
+        component: dynamicRoutesMap[`/src/views/${menu.component}.vue`],
+        meta: {
+          icon: menu.icon
+        }
       })
     }
   }
 }
 
 generateDynamicRoutes(menuList)
-
-console.log('dynamicRoutes', dynamicRoutes)
 
 home.children = home.children.concat(dynamicRoutes)
 
