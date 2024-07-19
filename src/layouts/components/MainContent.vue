@@ -6,7 +6,10 @@
 <template>
   <q-page-container>
     <breadcrumb-view id="breadcrumb-view" />
-    <q-page class="row">
+    <q-page
+      class="row"
+      :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset + 50}px)` })"
+    >
       <div class="col-12">
         <div class="column full-height">
           <q-scroll-area class="col q-px-sm">
