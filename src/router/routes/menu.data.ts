@@ -67,12 +67,12 @@ export const menuList: Menu[] = [
     ]
   },
   {
-    icon: 'settings',
+    icon: 'monitor',
     label: 'Log',
     type: MenuType.CATALOG,
     children: [
       {
-        icon: 'people',
+        icon: 'dns',
         label: 'System Log',
         path: '/sys-log',
         type: MenuType.PAGE,
@@ -80,7 +80,7 @@ export const menuList: Menu[] = [
         component: 'modules/log/SysLogView'
       },
       {
-        icon: 'security',
+        icon: 'people',
         label: 'User Log',
         path: '/user-log',
         type: MenuType.PAGE,
@@ -88,6 +88,13 @@ export const menuList: Menu[] = [
         component: 'modules/log/UserLogView'
       }
     ]
+  },
+  {
+    icon: 'info',
+    label: 'About',
+    path: '/about',
+    type: MenuType.PAGE,
+    component: 'AboutView'
   },
   {
     icon: 'account_circle',
