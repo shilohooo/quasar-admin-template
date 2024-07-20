@@ -12,7 +12,7 @@
     >
       <div class="col-12">
         <div class="column full-height">
-          <q-scroll-area class="col q-px-md">
+          <q-scroll-area class="col q-pa-md">
             <router-view />
           </q-scroll-area>
         </div>
