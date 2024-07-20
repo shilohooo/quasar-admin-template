@@ -9,7 +9,10 @@
     v-model="sidebarStore.collapsed"
     side="left"
     bordered
+    :mini="miniState"
     :breakpoint="500"
+    @mouseover="miniState = false"
+    @mouseout="miniState = true"
   >
     <q-scroll-area class="fit">
       <q-list>
@@ -41,11 +44,13 @@
   import SidebarMenuItem from 'layouts/components/SidebarMenuItem.vue'
   import { useSidebarStore } from 'stores/sidebar'
   import { useRoute } from 'vue-router'
+  import { ref } from 'vue'
 
   defineOptions({ name: 'SidebarMenu' })
 
   const sidebarStore = useSidebarStore()
   const route = useRoute()
+  const miniState = ref(true)
 </script>
 
 <style scoped></style>
