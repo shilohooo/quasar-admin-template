@@ -31,28 +31,26 @@ function generateDynamicRoutes(menus: Menu[]) {
     }
 
     if (menu.path) {
-      dynamicRoutes.push({
+      dynamicRoutes.push()
+      home.children?.push({
         path: menu.path,
         name: menu.label ?? menu.path,
         component: dynamicRoutesMap[`/src/views/${menu.component}.vue`],
         meta: {
           icon: menu.icon
         }
-      })
+      } as RouteRecordRaw)
     }
   }
 }
 
 generateDynamicRoutes(menuList)
 
-home.children = home.children.concat(dynamicRoutes)
-
-export default [
-  home,
+home.children.push({
   // Always leave this as last one,
   // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('src/views/ErrorNotFound.vue')
-  }
-]
+  path: '/:catchAll(.*)*',
+  component: () => import('src/views/ErrorNotFound.vue')
+})
+
+export default [home]
