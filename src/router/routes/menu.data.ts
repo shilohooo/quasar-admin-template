@@ -15,7 +15,7 @@ export interface Menu {
   name?: string
   label: string
   icon?: string
-  level: number
+  level?: number
   component?: string
   type: MenuType
   children?: Menu[]
@@ -39,7 +39,6 @@ export const menuList: Menu[] = [
     icon: 'settings',
     label: 'System',
     type: MenuType.CATALOG,
-    level: 0,
     children: [
       {
         icon: 'people',
@@ -71,7 +70,6 @@ export const menuList: Menu[] = [
     icon: 'settings',
     label: 'Log',
     type: MenuType.CATALOG,
-    level: 0,
     children: [
       {
         icon: 'people',
@@ -96,21 +94,18 @@ export const menuList: Menu[] = [
     label: 'Profile',
     path: '/profile',
     type: MenuType.PAGE,
-    level: 0,
     component: 'ProfileView'
   },
   {
     icon: 'feedback',
     label: 'Send Feedback',
     path: 'https://google.com',
-    type: MenuType.LINK,
-    level: 0
+    type: MenuType.LINK
   },
   {
     icon: 'help',
     label: 'Help',
     path: 'https://google.com',
-    type: MenuType.LINK,
-    level: 0
+    type: MenuType.LINK
   }
 ]
