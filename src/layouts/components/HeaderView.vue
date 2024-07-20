@@ -14,13 +14,20 @@
         dense
         flat
         round
+        class="q-mr-md"
         icon="menu"
         @click="sidebarStore.toggleCollapsed()"
       />
+      <q-avatar color="white">
+        <img
+          src="~assets/logo.svg"
+          alt="App Logo"
+        />
+      </q-avatar>
       <q-toolbar-title> System Name</q-toolbar-title>
       <q-avatar class="q-mr-md">
         <img
-          src="src/assets/avatar.jpg"
+          src="~assets/avatar.jpg"
           alt="User Avatar"
         />
       </q-avatar>
