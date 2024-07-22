@@ -15,7 +15,6 @@
           <q-scroll-area class="col q-pa-md">
             <transition
               mode="in-out"
-              appear
               :name="transitionName"
             >
               <router-view>
