@@ -86,6 +86,7 @@
             no-caps
             dense
             icon="delete"
+            @click="handleDeleteUser(props.row as User)"
           >
           </q-btn>
         </q-td>
@@ -179,11 +180,44 @@
         type: 'positive',
         position: 'top',
         message: `Successfully obtained ${users.value.length} users!`,
-        icon: 'mood'
+        icon: 'mood',
+        timeout: 3000
       })
     } finally {
       loading.value = false
     }
+  }
+
+  // endregion
+
+  // region delete
+
+  const handleDeleteUser = (user: User) => {
+    $q.dialog({
+      title: '<span class="text-warning">WARNING</span>',
+      message: `Are you sure you want to delete <span class="text-bold">${user.name}?</span>`,
+      cancel: true,
+      persistent: true,
+      html: true
+    })
+      .onOk(() => {
+        $q.notify({
+          color: 'positive',
+          message: 'User deleted!',
+          icon: 'check',
+          timeout: 3000,
+          position: 'top'
+        })
+      })
+      .onCancel(() => {
+        $q.notify({
+          color: 'negative',
+          message: 'User not deleted!',
+          icon: 'close',
+          timeout: 3000,
+          position: 'top'
+        })
+      })
   }
 
   // endregion
