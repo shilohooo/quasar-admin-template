@@ -14,10 +14,7 @@
     :target="MenuType.LINK === menu.type ? '_blank' : undefined"
     :inset-level="menu.level"
   >
-    <q-item-section
-      v-if="menu.icon"
-      avatar
-    >
+    <q-item-section v-if="menu.icon" avatar>
       <q-icon :name="menu.icon" />
     </q-item-section>
     <q-item-section>
@@ -30,11 +27,7 @@
       :label="menu.label"
       :header-class="menu.children.findIndex((item) => route.path === item.path) > -1 ? 'text-primary' : undefined"
     >
-      <sidebar-menu-item
-        v-for="subMenu in menu.children"
-        :key="subMenu.label"
-        :menu="subMenu"
-      />
+      <sidebar-menu-item v-for="subMenu in menu.children" :key="subMenu.label" :menu="subMenu" />
     </q-expansion-item>
   </div>
 </template>

@@ -1,14 +1,8 @@
-import { defineComponent } from 'vue'
-
 /**
  * 菜单信息
  * @author shiloh
  * @date 2024/7/16 14:17
  */
-export type Component<T = never> =
-  | ReturnType<typeof defineComponent>
-  | (() => Promise<typeof import('*.vue')>)
-  | (() => Promise<T>)
 
 export interface Menu {
   path?: string

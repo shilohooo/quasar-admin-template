@@ -5,7 +5,7 @@ module.exports = {
   root: true,
 
   // https://eslint.vuejs.org/user-guide/#how-to-use-a-custom-parser
-  // Must use parserOptions instead of "parser" to allow vue-eslint-parser to keep working
+  // Must use parserOptions instead of 'parser' to allow vue-eslint-parser to keep working
   // `parser: 'vue-eslint-parser'` is already included with any 'plugin:vue/**' config and should be omitted
   parserOptions: {
     parser: require.resolve('@typescript-eslint/parser'),
@@ -67,6 +67,15 @@ module.exports = {
 
   // add your custom rules here
   rules: {
+    // brace style
+    // https://eslint.style/rules/js/brace-style
+    'brace-style': [
+      'error',
+      '1tbs',
+      {
+        'allowSingleLine': true
+      }
+    ],
 
     'prefer-promise-reject-errors': 'off',
 
@@ -83,7 +92,47 @@ module.exports = {
     'no-unused-vars': 'off',
 
     // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
+    // max attributes per line
+    // https://eslint.vuejs.org/rules/max-attributes-per-line.html
+    'vue/max-attributes-per-line': [
+      'error', {
+        'singleline': 3,
+        'multiline': 1
+      }
+    ],
+
+    // first attribute line break
+    'vue/first-attribute-linebreak': [
+      'error',
+      {
+        'singleline': 'ignore',
+        'multiline': 'below'
+      }
+    ],
+
+    // closing tag in newline
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        'singleline': 'never',
+        'multiline': 'always',
+        'selfClosingTag': {
+          'singleline': 'never',
+          'multiline': 'always'
+        }
+      }
+    ],
+
+    // html closing bracket spacing
+    'vue/html-closing-bracket-spacing': [
+      'error',
+      {
+        'startTag': 'never',
+        'endTag': 'never',
+        'selfClosingTag': 'always'
+      }
+    ]
   }
 }

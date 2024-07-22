@@ -15,8 +15,7 @@
         :icon="tab.icon"
         :label="tab.label"
         no-caps
-      >
-      </q-tab>
+      />
     </q-tabs>
 
     <q-separator />
