@@ -1,10 +1,10 @@
 {
-  "name": "vue3-quasar-demo01",
+  "name": "quasar-layout-example",
   "version": "0.0.1",
-  "description": "Vue3 Quasar Demo",
-  "productName": "Quasar Demo App",
+  "description": "Vue3 Quasar layout example",
+  "productName": "Quasar Layout Example",
   "author": "shiloh <lixiaolei595@gmail.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
