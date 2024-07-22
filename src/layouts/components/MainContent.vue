@@ -13,7 +13,17 @@
       <div class="col-12">
         <div class="column full-height">
           <q-scroll-area class="col q-pa-md">
-            <router-view />
+            <transition
+              mode="in-out"
+              appear
+              :name="transitionName"
+            >
+              <router-view>
+                <template #default="{ Component }">
+                  <component :is="Component" />
+                </template>
+              </router-view>
+            </transition>
           </q-scroll-area>
         </div>
       </div>
@@ -23,8 +33,78 @@
 
 <script setup lang="ts">
   import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
+  import { ref } from 'vue'
 
   defineOptions({ name: 'MainContent' })
+  const transitionName = ref('scale')
 </script>
 
-<style scoped></style>
+<style scoped>
+  /*.fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all 0.75s ease-out;
+  }
+
+  .slide-enter-to {
+    position: absolute;
+    right: 0;
+  }
+
+  .slide-enter-from {
+    position: absolute;
+    right: -100%;
+  }
+
+  .slide-leave-to {
+    position: absolute;
+    left: -100%;
+  }
+
+  .slide-leave-from {
+    position: absolute;
+    left: 0;
+  }*/
+
+  .scale-enter-active,
+  .scale-leave-active {
+    transition: all 0.5s ease;
+  }
+
+  .scale-enter-from,
+  .scale-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  /*.scale-slide-enter-active,
+  .scale-slide-leave-active {
+    position: absolute;
+    transition: all 0.85s ease;
+  }
+
+  .scale-slide-enter-from {
+    left: -100%;
+  }
+
+  .scale-slide-enter-to {
+    left: 0;
+  }
+
+  .scale-slide-leave-from {
+    transform: scale(1);
+  }
+
+  .scale-slide-leave-to {
+    transform: scale(0.8);
+  }*/
+</style>
