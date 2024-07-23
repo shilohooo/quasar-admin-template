@@ -10,7 +10,16 @@
     reveal
   >
     <q-toolbar>
-      <q-toolbar-title>Your Copyright</q-toolbar-title>
+      <q-toolbar-title class="text-center">
+        <q-btn
+          flat
+          dense
+          no-caps
+          target="_blank"
+          href="#"
+          label="Your Copyright © 2024"
+        />
+      </q-toolbar-title>
     </q-toolbar>
   </q-footer>
 </template>
