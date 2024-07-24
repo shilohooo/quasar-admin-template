@@ -24,20 +24,23 @@
           alt="App Logo"
         />
       </q-avatar>
-      <q-toolbar-title> System Name</q-toolbar-title>
+      <q-toolbar-title>System Name</q-toolbar-title>
       <q-avatar class="q-mr-md">
         <img
           src="~assets/avatar.jpg"
           alt="User Avatar"
         />
       </q-avatar>
-      <span class="text-bold">The Username</span>
+      <span class="text-bold">Your Username</span>
     </q-toolbar>
+
+    <tab-view />
   </q-header>
 </template>
 
 <script setup lang="ts">
   import { useSidebarStore } from 'stores/sidebar'
+  import TabView from 'layouts/components/TabView.vue'
 
   const sidebarStore = useSidebarStore()
 

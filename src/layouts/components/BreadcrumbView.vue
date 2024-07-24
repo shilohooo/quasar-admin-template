@@ -4,7 +4,7 @@
   * @date 2024/7/19 16:24
 -->
 <template>
-  <q-toolbar>
+  <q-toolbar class="bg-white">
     <q-breadcrumbs>
       <q-breadcrumbs-el
         label="Home"

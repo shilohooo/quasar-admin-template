@@ -4,15 +4,16 @@
   * @date 2024/7/16 17:19
 -->
 <template>
-  <q-page-container>
-    <breadcrumb-view id="breadcrumb-view" />
+  <q-page-container class="bg-grey-2">
+    <breadcrumb-view />
+
     <q-page
       class="row"
       :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset + 50}px)` })"
     >
       <div class="col-12">
         <div class="column full-height">
-          <q-scroll-area class="col q-pa-md">
+          <q-scroll-area class="col bg-white q-ma-md shadow-2 rounded-borders q-pa-md">
             <transition
               mode="in-out"
               :name="transitionName"
@@ -32,10 +33,24 @@
 
 <script setup lang="ts">
   import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
-  import { ref } from 'vue'
+  import { onMounted, ref } from 'vue'
+  import { useTabStore } from 'stores/tab'
+  import { useRoute } from 'vue-router'
+  import { MenuType } from 'src/router/routes/menu.data'
 
   defineOptions({ name: 'MainContent' })
   const transitionName = ref('scale')
+  const tabStore = useTabStore()
+  const route = useRoute()
+
+  onMounted(() => {
+    tabStore.addTab({
+      path: route.path,
+      label: route.name as string,
+      icon: route.meta.icon as string,
+      type: MenuType.PAGE
+    })
+  })
 </script>
 
 <style scoped>
