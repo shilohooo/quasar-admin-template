@@ -9,11 +9,7 @@
     v-model="sidebarStore.collapsed"
     side="left"
     bordered
-    :mini="miniState"
-    :mini-width="80"
     :breakpoint="500"
-    @mouseover="miniState = false"
-    @mouseout="miniState = true"
   >
     <q-scroll-area class="fit">
       <q-list>
@@ -21,7 +17,9 @@
           clickable
           v-ripple
           to="/"
+          class="q-ma-sm"
           :active="'/' === route.path"
+          active-class="bg-blue-1 rounded-borders"
           @click="tabStore.addTab({ path: '/', label: 'Home', icon: 'home', type: MenuType.PAGE })"
         >
           <q-item-section avatar>
@@ -29,10 +27,7 @@
           </q-item-section>
           <q-item-section> Home</q-item-section>
         </q-item>
-        <q-separator
-          key="home"
-          size="2px"
-        />
+
         <template
           v-for="menuItem in menuList"
           :key="menuItem.label"
@@ -49,14 +44,12 @@
   import SidebarMenuItem from 'layouts/components/SidebarMenuItem.vue'
   import { useSidebarStore } from 'stores/sidebar'
   import { useRoute } from 'vue-router'
-  import { ref } from 'vue'
   import { useTabStore } from 'stores/tab'
 
   defineOptions({ name: 'SidebarMenu' })
 
   const sidebarStore = useSidebarStore()
   const route = useRoute()
-  const miniState = ref(true)
 
   const tabStore = useTabStore()
 </script>

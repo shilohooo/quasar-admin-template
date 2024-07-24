@@ -9,6 +9,8 @@
     clickable
     :active="menu.path === route.path"
     v-ripple
+    class="q-ma-sm"
+    active-class="bg-blue-1 rounded-borders"
     :to="MenuType.PAGE === menu.type ? menu.path : undefined"
     :href="MenuType.LINK === menu.type ? menu.path : undefined"
     :target="MenuType.LINK === menu.type ? '_blank' : undefined"
@@ -29,6 +31,7 @@
     <q-expansion-item
       :icon="menu.icon"
       :label="menu.label"
+      class="q-ma-sm"
       :header-class="menu.children.findIndex((item) => route.path === item.path) > -1 ? 'text-primary' : undefined"
     >
       <sidebar-menu-item
