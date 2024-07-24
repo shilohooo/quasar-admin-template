@@ -26,13 +26,6 @@
       </q-avatar>
       <q-toolbar-title>System Name</q-toolbar-title>
       <tab-view />
-      <!--      <q-avatar class="q-mr-md">-->
-      <!--        <img-->
-      <!--          src="~assets/avatar.jpg"-->
-      <!--          alt="User Avatar"-->
-      <!--        />-->
-      <!--      </q-avatar>-->
-      <!--      <span class="text-bold">Your Username</span>-->
     </q-toolbar>
   </q-header>
 </template>
