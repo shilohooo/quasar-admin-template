@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 import { Menu, menuList, MenuType } from 'src/router/routes/menu.data'
 // Vite 一次性导入匹配指定路径的所有组件实例，返回值为一个 key = 路径，value = 组件实例 的对象
 // 在 Vue3 中，如果需要根据菜单配置或者后台接口数据生成动态路由，则要先将对应的组件全部导入进来

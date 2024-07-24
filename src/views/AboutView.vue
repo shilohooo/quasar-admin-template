@@ -46,7 +46,7 @@
   import 'vue-json-pretty/lib/styles.css'
   import { ref } from 'vue'
   import { QVueGlobals, useQuasar } from 'quasar'
-  import { JSONDataType } from 'vue-json-pretty/types/utils'
+  import type { JSONDataType } from 'vue-json-pretty/types/utils'
 
   defineOptions({
     name: 'IndexPage'

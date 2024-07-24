@@ -99,7 +99,7 @@
   import { QTableColumn, useQuasar } from 'quasar'
   import { onMounted, ref } from 'vue'
   import { api } from 'boot/axios'
-  import { User } from './models'
+  import type { User } from './models'
 
   defineOptions({ name: 'UserView' })
   const $q = useQuasar()
