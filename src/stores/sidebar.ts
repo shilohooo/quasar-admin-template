@@ -6,7 +6,6 @@ export const useSidebarStore = defineStore('sidebar', () => {
 
   const toggleCollapsed = () => {
     collapsed.value = !collapsed.value
-    console.log(collapsed.value)
   }
 
   return {
