@@ -22,7 +22,7 @@
           v-ripple
           to="/"
           :active="'/' === route.path"
-          @click="handleMenuItemClick({ path: '/', label: 'Home', icon: 'home', type: Menu })"
+          @click="tabStore.addTab({ path: '/', label: 'Home', icon: 'home', type: MenuType.PAGE })"
         >
           <q-item-section avatar>
             <q-icon name="home" />
@@ -45,10 +45,10 @@
 </template>
 
 <script setup lang="ts">
-  import { type Menu, menuList } from 'src/router/routes/menu.data'
+  import { menuList, MenuType } from 'src/router/routes/menu.data'
   import SidebarMenuItem from 'layouts/components/SidebarMenuItem.vue'
   import { useSidebarStore } from 'stores/sidebar'
-  import { useRoute, useRouter } from 'vue-router'
+  import { useRoute } from 'vue-router'
   import { ref } from 'vue'
   import { useTabStore } from 'stores/tab'
 
@@ -59,18 +59,6 @@
   const miniState = ref(true)
 
   const tabStore = useTabStore()
-  const router = useRouter()
-
-  /**
-   * 菜单点击处理
-   * @param menu 当前点击的菜单
-   * @author shiloh
-   * @date 2024/7/24 15:52
-   */
-  const handleMenuItemClick = async (menu: Menu) => {
-    tabStore.addTab(menu)
-    await router.push({ path: menu.path })
-  }
 </script>
 
 <style scoped></style>

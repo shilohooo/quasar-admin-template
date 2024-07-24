@@ -5,10 +5,11 @@
 -->
 <template>
   <q-tabs
-    v-model="tabStore.currentTab"
     no-caps
     inline-label
     dense
+    shrink
+    stretch
     align="left"
   >
     <q-route-tab

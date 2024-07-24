@@ -13,7 +13,7 @@
     :href="MenuType.LINK === menu.type ? menu.path : undefined"
     :target="MenuType.LINK === menu.type ? '_blank' : undefined"
     :inset-level="menu.level"
-    @click="handleMenuItemClick(menu)"
+    @click="tabStore.addTab(menu)"
   >
     <q-item-section
       v-if="menu.icon"
@@ -41,8 +41,8 @@
 </template>
 
 <script setup lang="ts">
-  import { Menu, MenuType } from 'src/router/routes/menu.data'
-  import { useRoute, useRouter } from 'vue-router'
+  import { type Menu, MenuType } from 'src/router/routes/menu.data'
+  import { useRoute } from 'vue-router'
   import { useTabStore } from 'stores/tab'
 
   const route = useRoute()
@@ -52,18 +52,6 @@
   defineProps<{ menu: Menu }>()
 
   const tabStore = useTabStore()
-  const router = useRouter()
-
-  /**
-   * 菜单点击处理
-   * @param menu 当前点击的菜单
-   * @author shiloh
-   * @date 2024/7/24 15:52
-   */
-  const handleMenuItemClick = async (menu: Menu) => {
-    tabStore.addTab(menu)
-    await router.push({ path: menu.path })
-  }
 </script>
 
 <style scoped></style>

@@ -33,7 +33,6 @@ export const useTabStore = defineStore('tab-store', () => {
     }
 
     tabs.value.push(tab)
-    console.log('tabs', tabs.value)
   }
 
   /**

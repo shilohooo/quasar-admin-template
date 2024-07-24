@@ -25,16 +25,15 @@
         />
       </q-avatar>
       <q-toolbar-title>System Name</q-toolbar-title>
-      <q-avatar class="q-mr-md">
-        <img
-          src="~assets/avatar.jpg"
-          alt="User Avatar"
-        />
-      </q-avatar>
-      <span class="text-bold">Your Username</span>
+      <tab-view />
+      <!--      <q-avatar class="q-mr-md">-->
+      <!--        <img-->
+      <!--          src="~assets/avatar.jpg"-->
+      <!--          alt="User Avatar"-->
+      <!--        />-->
+      <!--      </q-avatar>-->
+      <!--      <span class="text-bold">Your Username</span>-->
     </q-toolbar>
-
-    <tab-view />
   </q-header>
 </template>
 
