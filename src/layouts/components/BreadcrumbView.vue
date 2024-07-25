@@ -4,21 +4,19 @@
   * @date 2024/7/19 16:24
 -->
 <template>
-  <q-toolbar class="bg-white">
-    <q-breadcrumbs>
-      <q-breadcrumbs-el
-        :label="HOME_MENU.label"
-        :icon="HOME_MENU.icon"
-        :to="HOME_MENU.path"
-      />
-      <q-breadcrumbs-el
-        v-for="breadcrumb in breadcrumbs"
-        :key="breadcrumb.label"
-        :label="breadcrumb.label"
-        :icon="breadcrumb.icon"
-      />
-    </q-breadcrumbs>
-  </q-toolbar>
+  <q-breadcrumbs active-color="text-white">
+    <q-breadcrumbs-el
+      :label="HOME_MENU.label"
+      :icon="HOME_MENU.icon"
+      :to="HOME_MENU.path"
+    />
+    <q-breadcrumbs-el
+      v-for="breadcrumb in breadcrumbs"
+      :key="breadcrumb.label"
+      :label="breadcrumb.label"
+      :icon="breadcrumb.icon"
+    />
+  </q-breadcrumbs>
 </template>
 
 <script setup lang="ts">

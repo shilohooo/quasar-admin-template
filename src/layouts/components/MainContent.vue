@@ -5,11 +5,10 @@
 -->
 <template>
   <q-page-container class="bg-grey-2">
-    <breadcrumb-view />
-
+    <tab-view />
     <q-page
       class="row"
-      :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset + 50}px)` })"
+      :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset + 40}px)` })"
     >
       <div class="col-12">
         <div class="column full-height">
@@ -32,11 +31,11 @@
 </template>
 
 <script setup lang="ts">
-  import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
   import { onMounted, ref } from 'vue'
   import { useTabStore } from 'stores/tab'
   import { useRoute } from 'vue-router'
   import { MenuType } from 'src/router/routes/menu.data'
+  import TabView from 'layouts/components/TabView.vue'
 
   defineOptions({ name: 'MainContent' })
   const transitionName = ref('scale')

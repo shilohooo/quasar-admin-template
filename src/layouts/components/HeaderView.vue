@@ -18,21 +18,24 @@
         icon="menu"
         @click="sidebarStore.toggleCollapsed()"
       />
-      <q-avatar color="white">
+      <breadcrumb-view />
+
+      <q-toolbar-title />
+
+      <q-avatar class="q-mr-sm">
         <img
-          src="~assets/logo.svg"
-          alt="App Logo"
+          src="~assets/avatar.jpg"
+          alt="User Avatar"
         />
       </q-avatar>
-      <q-toolbar-title>System Name</q-toolbar-title>
-      <tab-view />
+      <span class="text-bold">Your Username</span>
     </q-toolbar>
   </q-header>
 </template>
 
 <script setup lang="ts">
   import { useSidebarStore } from 'stores/sidebar'
-  import TabView from 'layouts/components/TabView.vue'
+  import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
 
   const sidebarStore = useSidebarStore()
 

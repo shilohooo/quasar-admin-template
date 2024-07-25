@@ -5,6 +5,7 @@
 -->
 <template>
   <q-tabs
+    class="bg-primary text-white"
     no-caps
     inline-label
     dense
