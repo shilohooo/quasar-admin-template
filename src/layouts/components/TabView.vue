@@ -21,7 +21,20 @@
       :name="tab.path"
       :to="tab.path"
       exact
-    />
+      @mouseover="tab.closable = true"
+      @mouseleave="tab.closable = false"
+    >
+      <template
+        v-if="tab.closable"
+        #default
+      >
+        <q-icon
+          class="q-ml-sm"
+          name="close"
+          @click.stop="tabStore.removeTab(tab)"
+        />
+      </template>
+    </q-route-tab>
   </q-tabs>
 </template>
 
