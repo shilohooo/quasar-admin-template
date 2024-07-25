@@ -8,7 +8,6 @@ import { HOME_MENU, type Menu } from 'src/router/routes/menu.data'
  * @date 2024/7/24 15:22
  */
 export const useTabStore = defineStore('tab-store', () => {
-  const currentTab = ref<string>('/')
   const tabs = ref<Menu[]>([HOME_MENU])
 
   /**
@@ -18,8 +17,9 @@ export const useTabStore = defineStore('tab-store', () => {
    * @date 2024/7/24 15:47
    */
   const addTab = (tab: Menu) => {
-    currentTab.value = tab.path ?? '/'
+    console.log('click tab', tab)
     const index = tabs.value.findIndex((item) => item.path === tab.path)
+    console.log('tabs', tabs.value)
     if (index > -1) {
       return
     }
@@ -41,7 +41,6 @@ export const useTabStore = defineStore('tab-store', () => {
   }
 
   return {
-    currentTab,
     tabs,
     addTab,
     removeTab
