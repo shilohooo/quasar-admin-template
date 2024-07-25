@@ -25,13 +25,13 @@
       @mouseleave="tab.closable = false"
     >
       <template
-        v-if="tab.closable"
+        v-if="HOME_MENU.path !== tab.path && tab.closable"
         #default
       >
         <q-icon
           class="q-ml-sm"
           name="close"
-          @click.stop="tabStore.removeTab(tab)"
+          @click.prevent="handleCloseTab(tab)"
         />
       </template>
     </q-route-tab>
@@ -39,9 +39,25 @@
 </template>
 
 <script setup lang="ts">
-  import { useTabStore } from 'stores/tab'
+  import { type Tab, useTabStore } from 'stores/tab'
+  import { HOME_MENU } from 'src/router/routes/menu.data'
+  import { useRouter } from 'vue-router'
 
   const tabStore = useTabStore()
+  const router = useRouter()
+
+  /**
+   * 关闭标签页
+   * @param tab 当前关闭的标签页
+   * @author shiloh
+   * @date 2024/7/25 16:01
+   */
+  const handleCloseTab = async (tab: Tab) => {
+    tabStore.removeTab(tab)
+    // 关闭后，跳转到上一个标签页
+    const lastTab = tabStore.tabs.at(-1)
+    await router.push({ path: lastTab?.path ?? HOME_MENU.path })
+  }
 </script>
 
 <style scoped></style>
