@@ -16,16 +16,16 @@
         <q-item
           clickable
           v-ripple
-          to="/"
+          :to="HOME_MENU.path"
           class="q-ma-sm"
-          :active="'/' === route.path"
+          :active="HOME_MENU.path === route.path"
           active-class="bg-blue-1 rounded-borders"
           @click="tabStore.addTab({ path: '/', label: 'Home', icon: 'home', type: MenuType.PAGE })"
         >
           <q-item-section avatar>
-            <q-icon name="home" />
+            <q-icon :name="HOME_MENU.icon" />
           </q-item-section>
-          <q-item-section> Home</q-item-section>
+          <q-item-section>{{ HOME_MENU.label }}</q-item-section>
         </q-item>
 
         <template
@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-  import { menuList, MenuType } from 'src/router/routes/menu.data'
+  import { HOME_MENU, menuList, MenuType } from 'src/router/routes/menu.data'
   import SidebarMenuItem from 'layouts/components/SidebarMenuItem.vue'
   import { useSidebarStore } from 'stores/sidebar'
   import { useRoute } from 'vue-router'

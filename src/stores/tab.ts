@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { type Menu, MenuType } from 'src/router/routes/menu.data'
+import { HOME_MENU, type Menu } from 'src/router/routes/menu.data'
 
 /**
  * tab store
@@ -9,15 +9,7 @@ import { type Menu, MenuType } from 'src/router/routes/menu.data'
  */
 export const useTabStore = defineStore('tab-store', () => {
   const currentTab = ref<string>('/')
-  const tabs = ref<Menu[]>([
-    {
-      path: '/',
-      name: 'Home',
-      label: 'Home',
-      type: MenuType.PAGE,
-      icon: 'home'
-    }
-  ])
+  const tabs = ref<Menu[]>([HOME_MENU])
 
   /**
    * 添加标签页

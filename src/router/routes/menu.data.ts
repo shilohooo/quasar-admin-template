@@ -21,6 +21,14 @@ export const enum MenuType {
   LINK = 2
 }
 
+export const HOME_MENU = {
+  icon: 'home',
+  name: 'home',
+  label: 'Home',
+  path: '/home',
+  type: MenuType.PAGE
+}
+
 /**
  * 菜单元信息
  *

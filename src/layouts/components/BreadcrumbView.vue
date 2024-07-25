@@ -7,9 +7,9 @@
   <q-toolbar class="bg-white">
     <q-breadcrumbs>
       <q-breadcrumbs-el
-        label="Home"
-        icon="home"
-        to="/"
+        :label="HOME_MENU.label"
+        :icon="HOME_MENU.icon"
+        :to="HOME_MENU.path"
       />
       <q-breadcrumbs-el
         v-for="breadcrumb in breadcrumbs"
@@ -24,6 +24,7 @@
 <script setup lang="ts">
   import { onMounted, ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
+  import { HOME_MENU } from 'src/router/routes/menu.data'
 
   defineOptions({ name: 'BreadcrumbView' })
 
@@ -49,8 +50,10 @@
   )
 
   function createBreadcrumbs() {
+    console.log('current route', currentRoute.value)
+    console.log('current route path', currentRoute.value.path)
     breadcrumbs.value =
-      '/' === currentRoute.value.path
+      HOME_MENU.path === currentRoute.value.path
         ? []
         : [
             {
@@ -59,6 +62,7 @@
               icon: currentRoute.value.meta.icon as string
             }
           ]
+    console.log('breadcrumbs', breadcrumbs.value)
   }
 </script>
 
