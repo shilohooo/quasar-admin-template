@@ -48,8 +48,6 @@
   )
 
   function createBreadcrumbs() {
-    console.log('current route', currentRoute.value)
-    console.log('current route path', currentRoute.value.path)
     breadcrumbs.value =
       HOME_MENU.path === currentRoute.value.path
         ? []
@@ -60,7 +58,6 @@
               icon: currentRoute.value.meta.icon as string
             }
           ]
-    console.log('breadcrumbs', breadcrumbs.value)
   }
 </script>
 

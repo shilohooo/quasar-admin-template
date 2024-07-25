@@ -19,9 +19,7 @@ export const useTabStore = defineStore('tab-store', () => {
    * @date 2024/7/24 15:47
    */
   const addTab = (tab: Tab) => {
-    console.log('click tab', tab)
     const index = tabs.value.findIndex((item) => item.path === tab.path)
-    console.log('tabs', tabs.value)
     if (index > -1) {
       return
     }
