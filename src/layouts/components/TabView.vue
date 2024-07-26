@@ -60,4 +60,8 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+  .q-icon:hover {
+    background-color: $grey-5;
+  }
+</style>
