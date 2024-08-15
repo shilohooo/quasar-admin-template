@@ -92,6 +92,21 @@ export const menuList: Menu[] = [
     ]
   },
   {
+    icon: 'dashboard',
+    label: 'Layouts',
+    type: MenuType.CATALOG,
+    children: [
+      {
+        icon: 'grid_view',
+        label: 'Flex Box',
+        path: '/layouts/flex-box',
+        type: MenuType.PAGE,
+        level: 1,
+        component: 'modules/layouts/FlexBox'
+      }
+    ]
+  },
+  {
     icon: 'info',
     label: 'About',
     path: '/about',
