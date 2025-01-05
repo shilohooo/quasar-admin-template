@@ -13,16 +13,16 @@
       <div class="col-12">
         <div class="column full-height">
           <q-scroll-area class="col bg-white q-ma-md shadow-2 rounded-borders q-pa-md">
-            <transition
-              mode="in-out"
-              :name="transitionName"
-            >
-              <router-view>
-                <template #default="{ Component }">
+            <router-view>
+              <template #default="{ Component }">
+                <transition
+                  mode="in-out"
+                  :name="transitionName"
+                >
                   <component :is="Component" />
-                </template>
-              </router-view>
-            </transition>
+                </transition>
+              </template>
+            </router-view>
           </q-scroll-area>
         </div>
       </div>

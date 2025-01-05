@@ -23,12 +23,10 @@
       <q-toolbar-title />
 
       <q-avatar class="q-mr-sm">
-        <img
-          src="~assets/avatar.jpg"
-          alt="User Avatar"
-        />
+        <a href="https://github.com/shilohooo/quasar-layout-example" target="_blank">
+          <q-icon name="ion-logo-github" color="white" />
+        </a>
       </q-avatar>
-      <span class="text-bold">Your Username</span>
     </q-toolbar>
   </q-header>
 </template>

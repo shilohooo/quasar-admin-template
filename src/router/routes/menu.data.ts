@@ -123,13 +123,13 @@ export const menuList: Menu[] = [
   {
     icon: 'feedback',
     label: 'Send Feedback',
-    path: 'https://google.com',
+    path: 'https://github.com/shilohooo/quasar-layout-example/issues',
     type: MenuType.LINK
   },
   {
     icon: 'help',
     label: 'Help',
-    path: 'https://google.com',
+    path: 'https://github.com/shilohooo/quasar-layout-example/issues',
     type: MenuType.LINK
   }
 ]
