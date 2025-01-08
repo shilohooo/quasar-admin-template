@@ -1,6 +1,6 @@
 # Quasar page layout example
 
-A Vue3 Quasar page layout example, with a simple dynamic routes config:)
+A Vue3 Quasar page layout example, with a simple dynamic routes config.
 
 ## Stack
 
