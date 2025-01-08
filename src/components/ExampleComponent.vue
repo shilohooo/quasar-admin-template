@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
 import type { Meta, Todo } from './models'
 
 interface Props {

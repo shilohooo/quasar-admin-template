@@ -16,8 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
 import { HOME_MENU } from 'src/router/routes/menu.data'
 
 defineOptions({ name: 'BreadcrumbView' })

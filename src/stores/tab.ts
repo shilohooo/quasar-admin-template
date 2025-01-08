@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
 import { HOME_MENU, type Menu } from 'src/router/routes/menu.data'
 
 export type Tab = Menu & { closable?: boolean }

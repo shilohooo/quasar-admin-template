@@ -2,6 +2,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 import { defineConfig } from '#q-app/wrappers'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -74,6 +75,10 @@ export default defineConfig((/* ctx */) => {
           },
           { server: false },
         ],
+        AutoImport({
+          imports: ['vue', 'vue-router'],
+          dts: 'src/types/auto-import.d.ts',
+        }),
       ],
     },
 

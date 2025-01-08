@@ -42,7 +42,6 @@
 
 <script setup lang="ts">
 import { type Menu, MenuType } from 'src/router/routes/menu.data'
-import { useRoute } from 'vue-router'
 import { useTabStore } from 'stores/tab'
 
 const route = useRoute()

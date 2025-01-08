@@ -37,7 +37,6 @@
 <script setup lang="ts">
 import VueJsonPretty from 'vue-json-pretty'
 import 'vue-json-pretty/lib/styles.css'
-import { ref } from 'vue'
 import type { QVueGlobals } from 'quasar'
 import { useQuasar } from 'quasar'
 import type { JSONDataType } from 'vue-json-pretty/types/utils'

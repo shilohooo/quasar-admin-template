@@ -76,7 +76,6 @@
 <script setup lang="ts">
 import type { QTableColumn } from 'quasar'
 import { useQuasar } from 'quasar'
-import { onMounted, ref } from 'vue'
 import { api } from 'boot/axios'
 import type { User } from './models'
 

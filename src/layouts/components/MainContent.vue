@@ -25,9 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import { useTabStore } from 'stores/tab'
-import { useRoute } from 'vue-router'
 import { MenuType } from 'src/router/routes/menu.data'
 import TabView from 'layouts/components/TabView.vue'
 

@@ -44,7 +44,6 @@
 import { HOME_MENU, menuList } from 'src/router/routes/menu.data'
 import SidebarMenuItem from 'layouts/components/SidebarMenuItem.vue'
 import { useSidebarStore } from 'stores/sidebar'
-import { useRoute } from 'vue-router'
 import { useTabStore } from 'stores/tab'
 
 defineOptions({ name: 'SidebarMenu' })
