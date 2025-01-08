@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "master" ]
     # 修改文件本身，不触发 actions
-    paths-ignore: .github/workflows/deploy.yml
+    # paths-ignore: .github/workflows/deploy.yml
   pull_request:
     branches: [ "master" ]
     # 修改文件本身，不触发 actions
