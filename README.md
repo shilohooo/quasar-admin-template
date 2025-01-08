@@ -5,7 +5,7 @@ A Vue3 Quasar page layout example, with a simple dynamic routes config:)
 ## Stack
 
 |    Name    | Version |
-|:----------:|:-------:|
+| :--------: | :-----: |
 |    Vue     | ^3.4.18 |
 |   Quasar   | ^2.16.0 |
 |   Pinia    | ^2.0.11 |
@@ -50,7 +50,7 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 See [Quasar Cli Vite](https://quasar.dev/quasar-cli-vite/handling-vite#folder-aliases)
 
 |   Alias    |        Resolves to         |
-|:----------:|:--------------------------:|
+| :--------: | :------------------------: |
 |    src     |            /src            |
 |    app     |             /              |
 | components |      /src/components       |

@@ -17,10 +17,7 @@
     :inset-level="menu.level"
     @click="tabStore.addTab(menu)"
   >
-    <q-item-section
-      v-if="menu.icon"
-      avatar
-    >
+    <q-item-section v-if="menu.icon" avatar>
       <q-icon :name="menu.icon" />
     </q-item-section>
     <q-item-section>
@@ -32,29 +29,29 @@
       :icon="menu.icon"
       :label="menu.label"
       class="q-ma-sm"
-      :header-class="menu.children.findIndex((item) => route.path === item.path) > -1 ? 'text-primary' : undefined"
+      :header-class="
+        menu.children.findIndex((item) => route.path === item.path) > -1
+          ? 'text-primary'
+          : undefined
+      "
     >
-      <sidebar-menu-item
-        v-for="subMenu in menu.children"
-        :key="subMenu.label"
-        :menu="subMenu"
-      />
+      <sidebar-menu-item v-for="subMenu in menu.children" :key="subMenu.label" :menu="subMenu" />
     </q-expansion-item>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { type Menu, MenuType } from 'src/router/routes/menu.data'
-  import { useRoute } from 'vue-router'
-  import { useTabStore } from 'stores/tab'
+import { type Menu, MenuType } from 'src/router/routes/menu.data'
+import { useRoute } from 'vue-router'
+import { useTabStore } from 'stores/tab'
 
-  const route = useRoute()
+const route = useRoute()
 
-  defineOptions({ name: 'SidebarMenuItem' })
+defineOptions({ name: 'SidebarMenuItem' })
 
-  defineProps<{ menu: Menu }>()
+defineProps<{ menu: Menu }>()
 
-  const tabStore = useTabStore()
+const tabStore = useTabStore()
 </script>
 
 <style scoped></style>

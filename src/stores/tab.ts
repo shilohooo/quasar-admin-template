@@ -43,6 +43,6 @@ export const useTabStore = defineStore('tab-store', () => {
   return {
     tabs,
     addTab,
-    removeTab
+    removeTab,
   }
 })

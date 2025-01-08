@@ -3,12 +3,7 @@
     <div>
       <div style="font-size: 30vh">404</div>
 
-      <div
-        class="text-h2"
-        style="opacity: 0.4"
-      >
-        Oops. Nothing here:(
-      </div>
+      <div class="text-h2" style="opacity: 0.4">Oops. Nothing here:(</div>
 
       <q-btn
         class="q-mt-xl"
@@ -24,11 +19,11 @@
 </template>
 
 <script setup lang="ts">
-  import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
-  defineOptions({
-    name: 'ErrorNotFound'
-  })
+defineOptions({
+  name: 'ErrorNotFound',
+})
 
-  const router = useRouter()
+const router = useRouter()
 </script>

@@ -18,7 +18,7 @@ export interface Menu {
 export const enum MenuType {
   CATALOG = 0,
   PAGE = 1,
-  LINK = 2
+  LINK = 2,
 }
 
 export const HOME_MENU = {
@@ -26,7 +26,7 @@ export const HOME_MENU = {
   name: 'home',
   label: 'Home',
   path: '/home',
-  type: MenuType.PAGE
+  type: MenuType.PAGE,
 }
 
 /**
@@ -48,7 +48,7 @@ export const menuList: Menu[] = [
         path: '/user',
         type: MenuType.PAGE,
         level: 1,
-        component: 'modules/sys/UserView'
+        component: 'modules/sys/UserView',
       },
       {
         icon: 'security',
@@ -56,7 +56,7 @@ export const menuList: Menu[] = [
         path: '/role',
         type: MenuType.PAGE,
         level: 1,
-        component: 'modules/sys/RoleView'
+        component: 'modules/sys/RoleView',
       },
       {
         icon: 'menu',
@@ -64,9 +64,9 @@ export const menuList: Menu[] = [
         path: '/menu',
         type: MenuType.PAGE,
         level: 1,
-        component: 'modules/sys/MenuView'
-      }
-    ]
+        component: 'modules/sys/MenuView',
+      },
+    ],
   },
   {
     icon: 'monitor',
@@ -79,7 +79,7 @@ export const menuList: Menu[] = [
         path: '/sys-log',
         type: MenuType.PAGE,
         level: 1,
-        component: 'modules/log/SysLogView'
+        component: 'modules/log/SysLogView',
       },
       {
         icon: 'people',
@@ -87,9 +87,9 @@ export const menuList: Menu[] = [
         path: '/user-log',
         type: MenuType.PAGE,
         level: 1,
-        component: 'modules/log/UserLogView'
-      }
-    ]
+        component: 'modules/log/UserLogView',
+      },
+    ],
   },
   {
     icon: 'dashboard',
@@ -102,34 +102,34 @@ export const menuList: Menu[] = [
         path: '/layouts/flex-box',
         type: MenuType.PAGE,
         level: 1,
-        component: 'modules/layouts/FlexBox'
-      }
-    ]
+        component: 'modules/layouts/FlexBox',
+      },
+    ],
   },
   {
     icon: 'info',
     label: 'About',
     path: '/about',
     type: MenuType.PAGE,
-    component: 'AboutView'
+    component: 'AboutView',
   },
   {
     icon: 'account_circle',
     label: 'Profile',
     path: '/profile',
     type: MenuType.PAGE,
-    component: 'ProfileView'
+    component: 'ProfileView',
   },
   {
     icon: 'feedback',
     label: 'Send Feedback',
     path: 'https://github.com/shilohooo/quasar-layout-example/issues',
-    type: MenuType.LINK
+    type: MenuType.LINK,
   },
   {
     icon: 'help',
     label: 'Help',
     path: 'https://github.com/shilohooo/quasar-layout-example/issues',
-    type: MenuType.LINK
-  }
+    type: MenuType.LINK,
+  },
 ]

@@ -10,6 +10,6 @@ export const useSidebarStore = defineStore('sidebar', () => {
 
   return {
     collapsed,
-    toggleCollapsed
+    toggleCollapsed,
   }
 })

@@ -3,10 +3,12 @@
   * @author shiloh
   * @date 2024/7/16 15:31
 -->
-<template>MenuView</template>
+<template>
+  <div>MenuView</div>
+</template>
 
 <script setup lang="ts">
-  defineOptions({ name: 'MenuView' })
+defineOptions({ name: 'MenuView' })
 </script>
 
 <style scoped></style>
