@@ -64,6 +64,6 @@ jobs:
           bash ~/projects/homepage/backup.sh
           rm -rf ~/projects/homepage/dist
         # scp from local to remote
-        scp: ./dist/* => ~/projects/homepage/dist/
+        scp: ./dist/ => ~/projects/homepage/dist/
         # execute post-commands after scp
         last_ssh: ls -lh ~/projects/homepage/
