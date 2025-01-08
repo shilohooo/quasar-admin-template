@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Welcome:)</h1>
-    <p>Current Time: {{ new Date() }}</p>
+    <p>Current time is: {{ new Date() }}</p>
   </div>
 </template>
 
