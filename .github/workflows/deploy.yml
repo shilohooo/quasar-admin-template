@@ -17,6 +17,7 @@ jobs:
   build:
     # 构建运行在哪个操作系统
     runs-on: ubuntu-latest
+    environment: HuaweiCloud
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
