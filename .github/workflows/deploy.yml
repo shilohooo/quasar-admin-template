@@ -28,7 +28,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
+        cache: 'npm'
     # 3.安装 Pnpm
     - name: Install Pnpm
       run: npm i -g pnpm
