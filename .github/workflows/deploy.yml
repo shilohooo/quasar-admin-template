@@ -20,25 +20,28 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    # 1.拉代码
+    # 拉代码
     - name: Checkout repository
       uses: actions/checkout@v4
-    # 2.设置 Node.js 环境
+    # 安装 Pnpm      
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+        run_install: false
+    # 设置 Node.js 环境
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    # 3.安装 Pnpm
-    - name: Install Pnpm
-      run: npm i -g pnpm
-    # 4.安装依赖
+        cache: 'pnpm'
+    # 安装依赖
     - name: Install dependencies
       run: pnpm i
-    # 5.打包项目
+    # 打包项目
     - name: Build App
       run: pnpm run build && pwd && ls -l
-    # 6.上传打包后的文件到云服务器
+    # 上传打包后的文件到云服务器
     # - name: ssh-scp-ssh-pipelines
     #   # You may pin to the exact commit or the version.
     #   # uses: cross-the-world/ssh-scp-ssh-pipelines@78e864b4890087a58248ff39320406971ca88b89
