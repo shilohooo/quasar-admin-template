@@ -45,26 +45,24 @@ jobs:
     - name: Build App
       run: pnpm run build && pwd && ls -l ./dist/spa/
     # 上传打包后的文件到云服务器
-    # - name: ssh-scp-ssh-pipelines
-    #   # You may pin to the exact commit or the version.
-    #   # uses: cross-the-world/ssh-scp-ssh-pipelines@78e864b4890087a58248ff39320406971ca88b89
-    #   uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
-    #   with:
-    #     # ssh remote host
-    #     host: 110.41.189.65
-    #     # ssh remote port
-    #     port: 58022
-    #     # ssh remote user
-    #     user: shiloh
-    #     # content of ssh private key. ex raw content of ~/.ssh/id_rsa
-    #     # key: # optional
-    #     # ssh remote password
-    #     # pass: # optional
-    #     # connection timeout to remote host
-    #     # connect_timeout: # optional, default is 30s
-    #     # execute pre-commands before scp
-    #     # first_ssh: # optional
-    #     # scp from local to remote
-    #     # scp: # optional
-    #     # execute post-commands after scp
-    #     # last_ssh: # optional
+    - name: ssh-scp-ssh-pipelines
+      # You may pin to the exact commit or the version.
+      # uses: cross-the-world/ssh-scp-ssh-pipelines@78e864b4890087a58248ff39320406971ca88b89
+      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+      with:
+        # ssh remote host
+        host: ${{ secrets.IP }}
+        # ssh remote port
+        port: ${{ secrets.PORT }}
+        # ssh remote user
+        user: ${{ secrets.USER }}
+        # content of ssh private key. ex raw content of ~/.ssh/id_rsa
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        # execute pre-commands before scp
+        first_ssh: |
+          bash ~/projects/homepage/backup.sh
+          rm -rf ~/projects/homepage/dist
+        # scp from local to remote
+        scp: ./dist/* => ~/projects/homepage/dist/
+        # execute post-commands after scp
+        last_ssh: ls -lh ~/projects/homepage/
