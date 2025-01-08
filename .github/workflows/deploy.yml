@@ -7,11 +7,11 @@ on:
   push:
     branches: [ "master" ]
     # 修改文件本身，不触发 actions
-    # paths-ignore: .github/workflows/deploy.yml
+    paths-ignore: [ '.github/workflows/deploy.yml' ]
   pull_request:
     branches: [ "master" ]
     # 修改文件本身，不触发 actions
-    paths-ignore: .github/workflows/deploy.yml
+    paths-ignore: [ '.github/workflows/deploy.yml' ]
 
 jobs:
   build:
@@ -20,46 +20,46 @@ jobs:
     environment: HuaweiCloud
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [ 18.x, 20.x, 22.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     # 构建步骤    
     steps:
-    # 拉代码
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    # 安装 Pnpm      
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 9
-        run_install: false
-    # 设置 Node.js 环境
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    # 安装依赖
-    - name: Install dependencies
-      run: pnpm i
-    # 打包项目
-    - name: Build App
-      run: pnpm run build && pwd && ls -l ./dist/spa/
-    # 上传打包后的文件到云服务器
-    - name: Copy artifact to Server
-      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
-      with:
-        # ssh remote host
-        host: ${{ secrets.IP }}
-        # ssh remote port
-        port: ${{ secrets.PORT }}
-        # ssh remote user
-        user: ${{ secrets.USER }}
-        # content of ssh private key. ex raw content of ~/.ssh/id_rsa
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        # execute pre-commands before scp
-        first_ssh: rm -rf /home/${{ secrets.USER }}/projects/homepage/dist
-        # scp from local to remote
-        scp: ./dist/* => /home/${{ secrets.USER }}/projects/homepage/dist/
-        # execute post-commands after scp
-        last_ssh: ls -lh /home/${{ secrets.USER }}/projects/homepage/dist/
+      # 拉代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # 安装 Pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+      # 设置 Node.js 环境
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      # 安装依赖
+      - name: Install dependencies
+        run: pnpm i
+      # 打包项目
+      - name: Build App
+        run: pnpm run build && pwd && ls -l ./dist/spa/
+      # 上传打包后的文件到云服务器
+      - name: Copy artifact to Server
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          # ssh remote host
+          host: ${{ secrets.IP }}
+          # ssh remote port
+          port: ${{ secrets.PORT }}
+          # ssh remote user
+          user: ${{ secrets.USER }}
+          # content of ssh private key. ex raw content of ~/.ssh/id_rsa
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # execute pre-commands before scp
+          first_ssh: rm -rf /home/${{ secrets.USER }}/projects/homepage/dist
+          # scp from local to remote
+          scp: ./dist/* => /home/${{ secrets.USER }}/projects/homepage/dist/
+          # execute post-commands after scp
+          last_ssh: ls -lh /home/${{ secrets.USER }}/projects/homepage/dist/

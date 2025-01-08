@@ -1,5 +1,8 @@
 <template>
-  <div class="text-h1">Welcome:)</div>
+  <div>
+    <h1>Welcome:)</h1>
+    <p>Current Time: {{ new Date() }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">
