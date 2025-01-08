@@ -53,7 +53,7 @@ jobs:
         # ssh remote host
         host: ${{ secrets.IP }}
         # ssh remote port
-        port: ${{ secrets.PORT }}
+        port: 58022
         # ssh remote user
         user: ${{ secrets.USER }}
         # content of ssh private key. ex raw content of ~/.ssh/id_rsa
