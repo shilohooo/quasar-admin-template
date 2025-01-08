@@ -60,10 +60,8 @@ jobs:
         # content of ssh private key. ex raw content of ~/.ssh/id_rsa
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         # execute pre-commands before scp
-        first_ssh: |
-          bash ~/projects/homepage/backup.sh
-          rm -rf ~/projects/homepage/dist
+        first_ssh: rm -rf ~/projects/homepage/dist
         # scp from local to remote
-        scp: ./dist/ => ~/projects/homepage/dist/
+        scp: ./dist/* => ~/projects/homepage/dist/
         # execute post-commands after scp
-        last_ssh: ls -lh ~/projects/homepage/
+        last_ssh: ls -lh ~/projects/homepage/dist/
