@@ -107,6 +107,21 @@ export const menuList: Menu[] = [
     ],
   },
   {
+    icon: 'sports_esports',
+    label: 'Examples',
+    type: MenuType.CATALOG,
+    children: [
+      {
+        icon: 'code',
+        label: 'Code Block',
+        path: '/examples/code-block',
+        type: MenuType.PAGE,
+        level: 1,
+        component: 'modules/examples/CodeBlock',
+      },
+    ],
+  },
+  {
     icon: 'info',
     label: 'About',
     path: '/about',
