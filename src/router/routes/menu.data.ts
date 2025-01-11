@@ -119,6 +119,14 @@ export const menuList: Menu[] = [
         level: 1,
         component: 'modules/examples/CodeBlock',
       },
+      {
+        icon: 'grid_on',
+        label: 'Icon Picker',
+        path: '/examples/icon-picker',
+        type: MenuType.PAGE,
+        level: 1,
+        component: 'modules/examples/IconPicker',
+      },
     ],
   },
   {
