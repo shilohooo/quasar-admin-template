@@ -5,7 +5,7 @@
 -->
 <template>
   <q-drawer show-if-above v-model="sidebarStore.collapsed" side="left" bordered :breakpoint="500">
-    <q-scroll-area style="height: calc(100% - 70px); margin-top: 70px">
+    <q-scroll-area style="height: calc(100% - 130px); margin-top: 70px">
       <q-list>
         <q-item
           clickable
@@ -36,6 +36,17 @@
         <img src="~assets/logo.svg" alt="App Logo" />
       </q-avatar>
       <span class="text-weight-bold">Your System Name</span>
+    </div>
+    <div class="text-center">
+      <div style="font-size: 12px">Copyright © 2024-present Shiloh. All Rights Reserved.</div>
+      <q-btn
+        flat
+        dense
+        no-caps
+        target="_blank"
+        href="https://beian.miit.gov.cn/"
+        label="粤ICP备2024240113号-1"
+      />
     </div>
   </q-drawer>
 </template>
