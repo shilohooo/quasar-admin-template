@@ -3,7 +3,6 @@
 
 import { defineConfig } from '#q-app/wrappers'
 import AutoImport from 'unplugin-auto-import/vite'
-import { EXTRA_CONFIG } from 'src/constant/extra'
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -19,7 +18,7 @@ export default defineConfig((/* ctx */) => {
     css: ['app.scss'],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
-    extras: EXTRA_CONFIG,
+    extras: ['roboto-font', 'material-icons', 'ionicons-v4'],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
     build: {
