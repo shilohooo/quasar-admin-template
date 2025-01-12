@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { HOME_MENU, type Menu } from 'src/router/routes/menu.data'
+import { HOME_MENU, type Menu, MenuType } from 'src/router/routes/menu.data'
 
 export type Tab = Menu & { closable?: boolean }
 
@@ -18,6 +18,10 @@ export const useTabStore = defineStore('tab-store', () => {
    * @date 2024/7/24 15:47
    */
   const addTab = (tab: Tab) => {
+    if (MenuType.PAGE !== tab.type) {
+      return
+    }
+
     const index = tabs.value.findIndex((item) => item.path === tab.path)
     if (index > -1) {
       return
