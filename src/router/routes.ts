@@ -49,6 +49,7 @@ function generateDynamicRoutes(menus: Menu[]) {
         component: dynamicRoutesMap[`/src/views/${menu.component}.vue`],
         meta: {
           icon: menu.icon,
+          iframeSrc: menu.iframeSrc ?? undefined,
         },
       } as RouteRecordRaw)
     }

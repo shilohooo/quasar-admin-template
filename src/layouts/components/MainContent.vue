@@ -9,7 +9,13 @@
     <q-page class="row" :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset + 40}px)` })">
       <div class="col-12">
         <div class="column full-height">
-          <q-scroll-area class="col bg-white q-ma-sm shadow-2 rounded-borders q-pa-md">
+          <q-scroll-area
+            class="col bg-white shadow-2 q-ma-sm"
+            :class="{
+              'q-pa-md': !route.meta.iframeSrc,
+              'rounded-borders': !route.meta.iframeSrc,
+            }"
+          >
             <router-view>
               <template #default="{ Component }">
                 <transition mode="out-in" :name="transitionName">

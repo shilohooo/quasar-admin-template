@@ -12,6 +12,7 @@ export interface Menu {
   level?: number
   component?: string
   type: MenuType
+  iframeSrc?: string
   children?: Menu[]
 }
 
@@ -126,6 +127,22 @@ export const menuList: Menu[] = [
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/examples/IconPicker',
+      },
+    ],
+  },
+  {
+    icon: 'web',
+    label: 'Iframe',
+    type: MenuType.CATALOG,
+    children: [
+      {
+        icon: 'language',
+        label: 'Quasar Docs',
+        path: '/iframe/quasar-docs',
+        type: MenuType.PAGE,
+        level: 1,
+        iframeSrc: 'https://quasar.dev/',
+        component: 'modules/iframe/IframeView',
       },
     ],
   },
