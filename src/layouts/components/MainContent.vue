@@ -4,18 +4,11 @@
   * @date 2024/7/16 17:19
 -->
 <template>
-  <q-page-container class="bg-grey-2">
-    <tab-view />
-    <q-page class="row" :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset + 40}px)` })">
+  <q-page-container>
+    <q-page class="row" :style-fn="(offset) => ({ minHeight: `calc(100vh - ${offset}px)` })">
       <div class="col-12">
         <div class="column full-height">
-          <q-scroll-area
-            class="col bg-white shadow-2 q-ma-sm"
-            :class="{
-              'q-pa-md': !route.meta.iframeSrc,
-              'rounded-borders': !route.meta.iframeSrc,
-            }"
-          >
+          <q-scroll-area class="col" :class="{ 'q-pa-md': !route.meta.iframeSrc }">
             <router-view>
               <template #default="{ Component }">
                 <transition mode="out-in" :name="transitionName">
@@ -33,7 +26,6 @@
 <script setup lang="ts">
 import { useTabStore } from 'stores/tab'
 import { MenuType } from 'src/router/routes/menu.data'
-import TabView from 'layouts/components/TabView.vue'
 
 defineOptions({ name: 'MainContent' })
 const transitionName = ref('scale')
