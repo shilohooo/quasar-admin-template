@@ -5,7 +5,6 @@ import { defineConfig } from '#q-app/wrappers'
 import AutoImport from 'unplugin-auto-import/vite'
 import Sitemap from 'vite-plugin-sitemap'
 
-
 export default defineConfig((/* ctx */) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
@@ -75,7 +74,7 @@ export default defineConfig((/* ctx */) => {
           imports: ['vue', 'vue-router'],
           dts: 'src/types/auto-import.d.ts',
         }),
-        Sitemap({ hostname: window.location.origin, outDir: 'dist/spa/' }),
+        Sitemap({ hostname: 'https://shiloh595.top', outDir: 'dist/spa/' }),
       ],
     },
 

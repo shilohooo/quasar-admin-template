@@ -36,7 +36,7 @@ import {
 import { liteClient as algoliasearch } from 'algoliasearch/lite'
 import 'instantsearch.css/themes/algolia-min.css'
 
-const searchClient = algoliasearch('', '')
+const searchClient = algoliasearch('AO6K7ID089', '123c52df025a4e680106fe8618465125')
 </script>
 
 <style scoped></style>
