@@ -3,6 +3,8 @@
 
 import { defineConfig } from '#q-app/wrappers'
 import AutoImport from 'unplugin-auto-import/vite'
+import Sitemap from 'vite-plugin-sitemap'
+
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -73,6 +75,7 @@ export default defineConfig((/* ctx */) => {
           imports: ['vue', 'vue-router'],
           dts: 'src/types/auto-import.d.ts',
         }),
+        Sitemap({ hostname: window.location.origin, outDir: 'dist/spa/' }),
       ],
     },
 
