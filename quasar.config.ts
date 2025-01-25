@@ -4,6 +4,11 @@
 import { defineConfig } from '#q-app/wrappers'
 import AutoImport from 'unplugin-auto-import/vite'
 import Sitemap from 'vite-plugin-sitemap'
+import { getRoutePaths, menuList } from 'src/router/routes/menu.data'
+
+const routePaths: string[] = []
+getRoutePaths(menuList, routePaths)
+console.log('getRoutePaths', routePaths)
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -74,7 +79,12 @@ export default defineConfig((/* ctx */) => {
           imports: ['vue', 'vue-router'],
           dts: 'src/types/auto-import.d.ts',
         }),
-        Sitemap({ hostname: 'https://shiloh595.top', outDir: 'dist/spa/' }),
+        Sitemap({
+          hostname: 'https://shiloh595.top/',
+          outDir: './dist/spa/',
+          readable: true,
+          dynamicRoutes: routePaths,
+        }),
       ],
     },
 
