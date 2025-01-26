@@ -17,14 +17,11 @@
   "dependencies": {
     "@quasar/extras": "^1.16.4",
     "@wdns/vue-code-block": "^2.3.5",
-    "algoliasearch": "^5.20.0",
     "axios": "^1.2.1",
-    "instantsearch.css": "^8.5.1",
     "monaco-editor": "^0.52.2",
     "pinia": "^2.0.11",
     "quasar": "^2.16.0",
     "vue": "^3.4.18",
-    "vue-instantsearch": "^4.20.2",
     "vue-json-pretty": "^2.4.0",
     "vue-router": "^4.0.12"
   },
@@ -42,7 +39,6 @@
     "typescript": "~5.5.3",
     "unplugin-auto-import": "^0.19.0",
     "vite-plugin-checker": "^0.8.0",
-    "vite-plugin-sitemap": "^0.7.1",
     "vue-tsc": "^2.0.29"
   },
   "engines": {
