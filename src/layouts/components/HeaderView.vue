@@ -11,7 +11,9 @@
 
       <q-toolbar-title />
 
-      <q-avatar class="q-mr-sm">
+      <menu-search-box />
+
+      <q-avatar>
         <a href="https://github.com/shilohooo/quasar-layout-example" target="_blank">
           <q-icon name="ion-logo-github" color="white" />
         </a>
@@ -23,6 +25,7 @@
 <script setup lang="ts">
 import { useSidebarStore } from 'stores/sidebar'
 import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
+import MenuSearchBox from 'components/MenuSearchBox.vue'
 
 const sidebarStore = useSidebarStore()
 
