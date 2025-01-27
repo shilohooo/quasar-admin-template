@@ -185,23 +185,18 @@ export const menuList: Menu[] = [
 /**
  * 获取所有类型为 PAGE 的路由的 path
  * @param menus 菜单列表
- * @param result 结果
+ * @param flatMenus 结果
  * @author shiloh
  * @date 2025/1/25 9:50
  */
-export function getRoutePaths(menus: Menu[], result: string[] = []) {
+export function getFlatMenus(menus: Menu[], flatMenus: Menu[] = []) {
   for (const menu of menus) {
     if (menu.children?.length) {
-      getRoutePaths(menu.children, result)
+      getFlatMenus(menu.children, flatMenus)
     }
 
-    // 菜单类型为 Page，才需要注册路由
-    if (MenuType.PAGE !== menu.type) {
-      continue
-    }
-
-    if (menu.path) {
-      result.push(`#${menu.path}`)
-    }
+    flatMenus.push(menu)
   }
+
+  return flatMenus
 }
