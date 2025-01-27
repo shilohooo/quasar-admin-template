@@ -45,11 +45,19 @@ export const menuList: Menu[] = [
     children: [
       {
         icon: 'people',
-        label: 'User',
-        path: '/user',
-        type: MenuType.PAGE,
+        label: 'User Management',
+        type: MenuType.CATALOG,
         level: 1,
-        component: 'modules/sys/UserView',
+        children: [
+          {
+            icon: 'list',
+            label: 'User List',
+            type: MenuType.PAGE,
+            path: '/user',
+            level: 1,
+            component: 'modules/sys/UserView',
+          },
+        ],
       },
       {
         icon: 'security',

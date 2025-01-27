@@ -14,7 +14,6 @@
     :to="MenuType.PAGE === menu.type ? menu.path : undefined"
     :href="MenuType.LINK === menu.type ? menu.path : undefined"
     :target="MenuType.LINK === menu.type ? '_blank' : undefined"
-    :inset-level="menu.level"
     @click="tabStore.addTab(menu)"
   >
     <q-item-section v-if="menu.icon" avatar>
@@ -29,6 +28,7 @@
       :icon="menu.icon"
       :label="menu.label"
       class="q-ma-sm"
+      :content-inset-level="0.2"
       :header-class="
         menu.children.findIndex((item) => route.path === item.path) > -1
           ? 'text-primary'
