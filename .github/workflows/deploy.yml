@@ -6,12 +6,12 @@ name: Deploy to Huawei Cloud Server
 on:
   push:
     branches: [ "master" ]
-    # 修改文件本身，不触发 actions
-    paths-ignore: [ '.github/workflows/deploy.yml' ]
+    # 修改本文件/README/TODO，不触发 actions
+    paths-ignore: [ '.github/workflows/deploy.yml', 'README.md', 'TODO.md' ]
   pull_request:
     branches: [ "master" ]
-    # 修改文件本身，不触发 actions
-    paths-ignore: [ '.github/workflows/deploy.yml' ]
+    # 修改本文件/README/TODO，不触发 actions
+    paths-ignore: [ '.github/workflows/deploy.yml', 'README.md', 'TODO.md' ]
 
 jobs:
   build:
