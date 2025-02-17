@@ -1,6 +1,6 @@
-# Quasar page layout example
+# Quasar admin template
 
-A Vue3 Quasar page layout example, with a simple dynamic routes config.
+A Quasar admin template with simple dynamic route config:).
 
 ## Stack
 
