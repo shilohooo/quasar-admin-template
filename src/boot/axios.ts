@@ -6,7 +6,32 @@
 import { defineBoot } from '#q-app/wrappers'
 import axios from 'axios'
 
-const api = axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' })
+const { VITE_API_BASE_PATH } = import.meta.env
+const api = axios.create({
+  baseURL: VITE_API_BASE_PATH,
+  withCredentials: true,
+  headers: { 'Content-Type': 'application/json' },
+  timeout: 30 * 1000,
+})
+
+api.interceptors.request.use((config) => {
+  console.log(`---------------request-----------> 😈 %c${config.url}`, 'color: #2fa968', config)
+  return config
+})
+
+api.interceptors.response.use(
+  (response) => {
+    console.log(
+      `---------------response-----------> 😈 %c${response.config.url}`,
+      'color: #2fa968',
+      response,
+    )
+    return response
+  },
+  (error) => {
+    return Promise.reject(error)
+  },
+)
 
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api

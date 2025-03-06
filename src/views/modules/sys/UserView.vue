@@ -76,8 +76,8 @@
 <script setup lang="ts">
 import type { QTableColumn } from 'quasar'
 import { useQuasar } from 'quasar'
-import { api } from 'boot/axios'
 import type { User } from './models'
+import httpClient from 'src/utils/http'
 
 defineOptions({ name: 'UserView' })
 const $q = useQuasar()
@@ -152,8 +152,8 @@ const selectedUsers = ref<User[]>([])
 const getUsers = async () => {
   loading.value = true
   try {
-    const res = await api.get('/users')
-    users.value = res.data as User[]
+    const res = await httpClient.instance.get<User[]>('/users')
+    users.value = res.data
     $q.notify({
       type: 'positive',
       position: 'top',
