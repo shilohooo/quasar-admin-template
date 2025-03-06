@@ -7,7 +7,7 @@
   <q-item
     v-if="!menu.children?.length"
     clickable
-    :active="menu.path === route.path"
+    :active="menu.path === currentRoute.path"
     v-ripple
     class="q-ma-sm"
     active-class="bg-blue-1 rounded-borders"
@@ -25,15 +25,13 @@
   </q-item>
   <div v-else>
     <q-expansion-item
+      v-model="expanded"
       :icon="menu.icon"
       :label="menu.label"
       class="q-ma-sm"
+      :group="`expansion-group-${menu.level}`"
       :content-inset-level="0.2"
-      :header-class="
-        menu.children.findIndex((item) => route.path === item.path) > -1
-          ? 'text-primary'
-          : undefined
-      "
+      :header-class="expanded ? 'text-primary' : undefined"
     >
       <sidebar-menu-item v-for="subMenu in menu.children" :key="subMenu.label" :menu="subMenu" />
     </q-expansion-item>
@@ -44,13 +42,37 @@
 import { type Menu, MenuType } from 'src/router/routes/menu.data'
 import { useTabStore } from 'stores/tab'
 
-const route = useRoute()
+const currentRoute = useRoute()
 
 defineOptions({ name: 'SidebarMenuItem' })
 
-defineProps<{ menu: Menu }>()
+const props = defineProps<{ menu: Menu }>()
 
 const tabStore = useTabStore()
+
+const expanded = ref(false)
+
+const router = useRouter()
+
+function isRouteExists(menus: Menu[], routePath: string): boolean {
+  for (const route of router.getRoutes()) {
+    if (route.path === routePath) {
+      return true
+    }
+  }
+
+  return false
+}
+
+function handleOpen(routePath: string) {
+  if (!props.menu.children) {
+    return
+  }
+
+  expanded.value = isRouteExists(props.menu.children, routePath)
+}
+
+defineExpose({ handleOpen })
 </script>
 
 <style scoped></style>

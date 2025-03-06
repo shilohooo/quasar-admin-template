@@ -23,7 +23,12 @@
         </q-item>
 
         <template v-for="menuItem in menuList" :key="menuItem.label">
-          <sidebar-menu-item :menu="menuItem" />
+          <sidebar-menu-item
+            :menu="menuItem"
+            :ref="
+              (el) => setSidebarMenuItemRef(menuItem.path!, el as unknown as SidebarMenuItemType)
+            "
+          />
         </template>
       </q-list>
     </q-scroll-area>
@@ -32,10 +37,10 @@
       class="absolute-top q-pa-sm flex items-center justify-center"
       style="height: 70px; gap: 10px"
     >
-      <q-avatar class="q-mb-sm" color="white">
+      <q-avatar class="q-mb-sm" square>
         <img src="~assets/logo.svg" alt="App Logo" />
       </q-avatar>
-      <span class="text-weight-bold">Your System Name</span>
+      <span class="text-weight-bold">{{ appName }}</span>
     </div>
     <div class="text-center">
       <div style="font-size: 12px">Copyright © 2024-present Shiloh. All Rights Reserved.</div>
@@ -63,6 +68,38 @@ const sidebarStore = useSidebarStore()
 const route = useRoute()
 
 const tabStore = useTabStore()
+
+const appName = ref<string>(import.meta.env.VITE_APP_NAME)
+
+type SidebarMenuItemType = typeof SidebarMenuItem
+const sidebarMenuItemRefs = ref<Record<string, SidebarMenuItemType>>({})
+
+function setSidebarMenuItemRef(path: string, el: SidebarMenuItemType) {
+  if (!el) {
+    return
+  }
+
+  sidebarMenuItemRefs.value[path] = el
+}
+
+function handleOpenMenu(routePath: string) {
+  const key = Object.keys(sidebarMenuItemRefs.value).find((key) => routePath.includes(key))
+  if (!key) {
+    return
+  }
+  sidebarMenuItemRefs.value[key]?.handleOpen(routePath)
+}
+
+watch(
+  () => route.path,
+  (newValue) => {
+    handleOpenMenu(newValue)
+  },
+)
+
+onMounted(() => {
+  handleOpenMenu(route.path)
+})
 </script>
 
 <style scoped></style>

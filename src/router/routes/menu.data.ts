@@ -41,19 +41,21 @@ export const menuList: Menu[] = [
   {
     icon: 'settings',
     label: 'System',
+    path: '/system',
     type: MenuType.CATALOG,
     children: [
       {
         icon: 'people',
         label: 'User Management',
         type: MenuType.CATALOG,
+        path: '/system/user',
         level: 1,
         children: [
           {
             icon: 'list',
             label: 'User List',
             type: MenuType.PAGE,
-            path: '/user',
+            path: '/system/user/list',
             level: 1,
             component: 'modules/sys/UserView',
           },
@@ -62,7 +64,7 @@ export const menuList: Menu[] = [
       {
         icon: 'security',
         label: 'Role',
-        path: '/role',
+        path: '/system/role',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/sys/RoleView',
@@ -70,7 +72,7 @@ export const menuList: Menu[] = [
       {
         icon: 'menu',
         label: 'Menu',
-        path: '/menu',
+        path: '/system/menu',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/sys/MenuView',
@@ -80,12 +82,13 @@ export const menuList: Menu[] = [
   {
     icon: 'monitor',
     label: 'Log',
+    path: '/log',
     type: MenuType.CATALOG,
     children: [
       {
         icon: 'dns',
         label: 'System Log',
-        path: '/sys-log',
+        path: '/log/sys-log',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/log/SysLogView',
@@ -93,7 +96,7 @@ export const menuList: Menu[] = [
       {
         icon: 'people',
         label: 'User Log',
-        path: '/user-log',
+        path: '/log/user-log',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/log/UserLogView',
@@ -102,13 +105,14 @@ export const menuList: Menu[] = [
   },
   {
     icon: 'dashboard',
-    label: 'Layouts',
+    label: 'Layout',
+    path: '/layout',
     type: MenuType.CATALOG,
     children: [
       {
         icon: 'grid_view',
         label: 'Flex Box',
-        path: '/layouts/flex-box',
+        path: '/layout/flex-box',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/layouts/FlexBox',
@@ -118,12 +122,13 @@ export const menuList: Menu[] = [
   {
     icon: 'sports_esports',
     label: 'Examples',
+    path: '/example',
     type: MenuType.CATALOG,
     children: [
       {
         icon: 'code',
         label: 'Code Block',
-        path: '/examples/code-block',
+        path: '/example/code-block',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/examples/CodeBlock',
@@ -131,7 +136,7 @@ export const menuList: Menu[] = [
       {
         icon: 'grid_on',
         label: 'Icon Picker',
-        path: '/examples/icon-picker',
+        path: '/example/icon-picker',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/examples/IconPicker',
@@ -139,7 +144,7 @@ export const menuList: Menu[] = [
       {
         icon: 'code',
         label: 'Code Editor',
-        path: '/examples/code-editor',
+        path: '/example/code-editor',
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/examples/CodeEditor',
@@ -149,6 +154,7 @@ export const menuList: Menu[] = [
   {
     icon: 'web',
     label: 'Iframe',
+    path: '/iframe',
     type: MenuType.CATALOG,
     children: [
       {
