@@ -5,7 +5,7 @@
  */
 
 export interface Menu {
-  path?: string
+  path: string
   name?: string
   label: string
   icon?: string

@@ -25,13 +25,14 @@
   </q-item>
   <div v-else>
     <q-expansion-item
-      v-model="expanded"
+      :ref="(el) => sidebarStore.addCatalogRef(menu, el as unknown as QExpansionItem)"
+      :default-opened="currentRoute.path.startsWith(menu.path!)"
       :icon="menu.icon"
       :label="menu.label"
       class="q-ma-sm"
       :group="`expansion-group-${menu.level}`"
       :content-inset-level="0.2"
-      :header-class="expanded ? 'text-primary' : undefined"
+      :header-class="currentRoute.path.startsWith(menu.path!) ? 'text-primary' : undefined"
     >
       <sidebar-menu-item v-for="subMenu in menu.children" :key="subMenu.label" :menu="subMenu" />
     </q-expansion-item>
@@ -41,38 +42,28 @@
 <script setup lang="ts">
 import { type Menu, MenuType } from 'src/router/routes/menu.data'
 import { useTabStore } from 'stores/tab'
+import type { QExpansionItem } from 'quasar'
+import { useSidebarStore } from 'stores/sidebar'
 
 const currentRoute = useRoute()
 
 defineOptions({ name: 'SidebarMenuItem' })
 
-const props = defineProps<{ menu: Menu }>()
+defineProps<{ menu: Menu }>()
 
 const tabStore = useTabStore()
+const sidebarStore = useSidebarStore()
 
-const expanded = ref(false)
-
-const router = useRouter()
-
-function isRouteExists(menus: Menu[], routePath: string): boolean {
-  for (const route of router.getRoutes()) {
-    if (route.path === routePath) {
-      return true
-    }
-  }
-
-  return false
+function handleShowMenu(routePath: string) {
+  sidebarStore.getCatalogRef(routePath).forEach((ref) => ref?.show())
 }
 
-function handleOpen(routePath: string) {
-  if (!props.menu.children) {
-    return
-  }
-
-  expanded.value = isRouteExists(props.menu.children, routePath)
-}
-
-defineExpose({ handleOpen })
+watch(
+  () => currentRoute.path,
+  (newValue) => {
+    handleShowMenu(newValue)
+  },
+)
 </script>
 
 <style scoped></style>
