@@ -16,9 +16,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
       return
     }
 
-    console.log('catalog path', menu.path)
     catalogRefs.value[menu.path] = el
-    console.log(catalogRefs.value)
   }
 
   const getCatalogRef = (routePath: string): (QExpansionItem | undefined)[] => {
