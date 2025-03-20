@@ -4,13 +4,14 @@ A Quasar admin template with simple dynamic route config:).
 
 ## Stack
 
-|    Name    | Version |
-| :--------: | :-----: |
-|    Vue     | ^3.4.18 |
-|   Quasar   | ^2.16.0 |
-|   Pinia    | ^2.0.11 |
-| Vue Router | ^4.0.12 |
-|   Axios    | ^1.2.1  |
+| Name       | Version  | Remark |
+|------------|----------|--------|
+| Vue        | ^3.4.18  |        |
+| Quasar     | ^2.16.0  |        |
+| Pinia      | ^2.0.11  |        |
+| Vue Router | ^4.0.12  |        |
+| Axios      | ^1.2.1   |        |
+| DayJs      | ^1.11.13 |        |
 
 ## Install the dependencies
 
@@ -51,7 +52,7 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 See [Quasar Cli Vite](https://quasar.dev/quasar-cli-vite/handling-vite#folder-aliases)
 
 |   Alias    |        Resolves to         |
-| :--------: | :------------------------: |
+|:----------:|:--------------------------:|
 |    src     |            /src            |
 |    app     |             /              |
 | components |      /src/components       |
