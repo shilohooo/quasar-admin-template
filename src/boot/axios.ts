@@ -5,6 +5,9 @@
  */
 import { defineBoot } from '#q-app/wrappers'
 import axios from 'axios'
+import { randomColor } from 'src/utils/random'
+import dayjs from 'dayjs'
+import { DAYJS_PATTERN } from 'src/constant/date-pattern'
 
 const { VITE_API_BASE_PATH } = import.meta.env
 const api = axios.create({
@@ -15,16 +18,25 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-  console.log(`---------------request-----------> 😈 %c${config.url}`, 'color: #2fa968', config)
+  console.log(
+    '%c┍------------------------------------------------------------------┑',
+    `color:${randomColor()}`,
+  )
+  const reqUrl = `${config.method?.toUpperCase()} ${config.url}`
+  const reqTime = dayjs().format(DAYJS_PATTERN.YYYY_MM_DD_HH_MM_SS)
+  console.log(`| [Request] ${reqTime} - ${reqUrl}`, config)
   return config
 })
 
 api.interceptors.response.use(
   (response) => {
+    const reqUrl = `${response.config.method?.toUpperCase()} ${response.config.url}`
+    const respTime = dayjs().format(DAYJS_PATTERN.YYYY_MM_DD_HH_MM_SS)
+    const respStatus = `${response.status}:${response.statusText}`
+    console.log(`| [Response] ${respTime} - ${respStatus} ${reqUrl}`, response)
     console.log(
-      `---------------response-----------> 😈 %c${response.config.url}`,
-      'color: #2fa968',
-      response,
+      '%c┕------------------------------------------------------------------┙',
+      `color:${randomColor()};`,
     )
     return response
   },
