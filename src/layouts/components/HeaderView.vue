@@ -13,11 +13,14 @@
 
       <menu-search-box />
 
-      <q-avatar>
-        <a href="https://github.com/shilohooo/quasar-layout-example" target="_blank">
-          <q-icon name="ion-logo-github" color="white" />
+      <div class="row q-ml-md q-gutter-x-sm">
+        <a :href="repoUrl" target="_blank">
+          <q-icon name="ion-logo-github" color="white" size="1.5rem" />
         </a>
-      </q-avatar>
+        <a :href="bugUrl" target="_blank">
+          <q-icon name="bug_report" color="white" size="1.5rem" />
+        </a>
+      </div>
     </q-toolbar>
   </q-header>
 </template>
@@ -26,8 +29,12 @@
 import { useSidebarStore } from 'stores/sidebar'
 import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
 import MenuSearchBox from 'components/MenuSearchBox.vue'
+import { repository, bugs } from '../../../package.json'
 
 const sidebarStore = useSidebarStore()
+
+const repoUrl = repository.url
+const bugUrl = bugs.url
 
 defineOptions({ name: 'HeaderView' })
 </script>

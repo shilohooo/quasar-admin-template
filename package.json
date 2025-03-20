@@ -4,6 +4,27 @@
   "description": "A Quasar Project",
   "productName": "Quasar App",
   "author": "shiloh <lixiaolei595@gmail.com>",
+  "repository": {
+    "url": "https://github.com/shilohooo/quasar-admin-template",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/shilohooo/quasar-admin-template/issues",
+    "email": "lixiaolei595@gmail.com"
+  },
+  "keywords": [
+    "quasar",
+    "quasar-app",
+    "vue",
+    "vue admin",
+    "vue admin template",
+    "vue3",
+    "vue3 admin",
+    "vue3 admin template",
+    "quasar layout",
+    "quasar admin",
+    "quasar admin template"
+  ],
   "type": "module",
   "private": true,
   "scripts": {
