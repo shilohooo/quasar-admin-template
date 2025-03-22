@@ -22,6 +22,8 @@
         </a>
       </div>
     </q-toolbar>
+
+    <tab-view />
   </q-header>
 </template>
 
@@ -30,6 +32,7 @@ import { useSidebarStore } from 'stores/sidebar'
 import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
 import MenuSearchBox from 'components/MenuSearchBox.vue'
 import { repository, bugs } from '../../../package.json'
+import TabView from 'layouts/components/TabView.vue'
 
 const sidebarStore = useSidebarStore()
 

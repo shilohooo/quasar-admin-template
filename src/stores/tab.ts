@@ -10,10 +10,11 @@ export type Tab = Menu & { closable?: boolean }
  */
 export const useTabStore = defineStore('tab-store', () => {
   const tabs = ref<Tab[]>([HOME_MENU])
+  const activeTab = ref<Tab>(HOME_MENU)
 
   /**
-   * 添加标签页
-   * @param tab 标签页
+   * add tab
+   * @param tab new tab
    * @author shiloh
    * @date 2024/7/24 15:47
    */
@@ -28,11 +29,12 @@ export const useTabStore = defineStore('tab-store', () => {
     }
 
     tabs.value.push(tab)
+    activeTab.value = tab
   }
 
   /**
-   * 删除标签页
-   * @param tab 标签页
+   * remove tab
+   * @param tab tab to remove
    * @author shiloh
    * @date 2024/7/24 15:47
    */
@@ -43,9 +45,21 @@ export const useTabStore = defineStore('tab-store', () => {
     }
   }
 
+  /**
+   * set active tab
+   * @param tab tab
+   * @author shiloh
+   * @date 2025/3/22 11:35
+   */
+  const setActiveTab = (tab: Tab) => {
+    activeTab.value = tab
+  }
+
   return {
     tabs,
     addTab,
     removeTab,
+    activeTab,
+    setActiveTab,
   }
 })
