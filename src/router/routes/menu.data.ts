@@ -24,7 +24,7 @@ export const enum MenuType {
 
 export const HOME_MENU = {
   icon: 'home',
-  name: 'home',
+  name: 'Home',
   label: 'Home',
   path: '/home',
   type: MenuType.PAGE,
@@ -140,7 +140,7 @@ export const menuList: Menu[] = [
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/examples/IconPicker',
-      }
+      },
     ],
   },
   {
