@@ -5,8 +5,16 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 import routes from './routes'
+
+NProgress.configure({
+  easing: 'ease',
+  speed: 500,
+  showSpinner: true,
+})
 
 /*
  * If not building with SSR mode, you can
@@ -24,7 +32,7 @@ export default defineRouter(function (/* { store, ssrContext } */) {
       ? createWebHistory
       : createWebHashHistory
 
-  return createRouter({
+  const router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0, behavior: 'smooth' }),
     routes,
 
@@ -33,4 +41,15 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
   })
+
+  router.beforeEach((to, from, next) => {
+    NProgress.start()
+    next()
+  })
+
+  router.afterEach(() => {
+    NProgress.done()
+  })
+
+  return router
 })

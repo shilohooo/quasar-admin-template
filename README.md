@@ -12,6 +12,7 @@ A Quasar admin template with simple dynamic route config:).
 | Vue Router | ^4.0.12  |        |
 | Axios      | ^1.2.1   |        |
 | DayJs      | ^1.11.13 |        |
+| NProgress  | ^0.2.0   |        |
 
 ## Install the dependencies
 

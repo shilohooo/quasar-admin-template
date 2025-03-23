@@ -3,5 +3,6 @@
 - [x] HttpClient base on Axios
 - [x] Auto expand sidebar menu after clicking on a search result
 - [x] Tabs of sidebar menu
-- [ ] Display progress bar when loading a page
+- [x] Display progress bar when loading a page
+- [ ] Axios request spinner
 - [ ] Github Actions - use appleboy/scp-action instead of cross-the-world/ssh-scp-ssh-pipelines
