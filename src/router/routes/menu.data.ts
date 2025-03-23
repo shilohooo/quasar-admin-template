@@ -140,15 +140,7 @@ export const menuList: Menu[] = [
         type: MenuType.PAGE,
         level: 1,
         component: 'modules/examples/IconPicker',
-      },
-      {
-        icon: 'code',
-        label: 'Code Editor',
-        path: '/example/code-editor',
-        type: MenuType.PAGE,
-        level: 1,
-        component: 'modules/examples/CodeEditor',
-      },
+      }
     ],
   },
   {

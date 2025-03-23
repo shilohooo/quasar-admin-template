@@ -15,8 +15,6 @@ export default defineConfig((/* ctx */) => {
     boot: [
       'axios',
       'code-block',
-      // code editor
-      'monaco-editor',
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
