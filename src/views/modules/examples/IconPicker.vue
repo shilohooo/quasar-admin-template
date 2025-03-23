@@ -35,7 +35,7 @@
             :key="iconName"
             :icon="iconName"
             flat
-            @click="selectedIconName = iconName"
+            @click="handleCopyIconTag(iconName)"
           />
         </div>
       </div>
@@ -66,6 +66,7 @@
 import type { QuasarIconSets } from 'quasar'
 import { ICON_SET } from 'src/constant/extra'
 import { ICON_MAP } from 'src/constant/icon-set'
+import { useClipboard } from 'src/hooks/useClipboard'
 
 // region search
 
@@ -130,6 +131,19 @@ function handleSearch() {
  */
 function handleCurrentPageChange() {
   getIcons()
+}
+
+const { copy } = useClipboard()
+
+/**
+ * copy icon as q-icon tag
+ * @param iconName icon name
+ * @author shiloh
+ * @date 2025/3/23 10:56
+ */
+async function handleCopyIconTag(iconName: string) {
+  selectedIconName.value = iconName
+  await copy(`<q-icon name="${iconName}" />`)
 }
 
 // endregion
