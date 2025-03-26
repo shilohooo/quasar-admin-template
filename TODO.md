@@ -5,5 +5,8 @@
 - [x] Tabs of sidebar menu
 - [x] Display progress bar when loading a page
 - [ ] Axios request spinner
+- [ ] Dashboard
+- [ ] Dark Mode
+- [ ] i18n
 - [ ] Mock server
 - [ ] GitHub Actions - use appleboy/scp-action instead of cross-the-world/ssh-scp-ssh-pipelines
