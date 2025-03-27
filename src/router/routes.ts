@@ -14,7 +14,7 @@ const home: RouteRecordRaw = {
     {
       path: HOME_MENU.path,
       name: HOME_MENU.name,
-      component: () => import('src/views/IndexPage.vue'),
+      component: () => import('src/views/modules/home/HomeView.vue'),
       meta: {
         icon: HOME_MENU.icon,
       },
