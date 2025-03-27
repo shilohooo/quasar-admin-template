@@ -13,13 +13,22 @@
 
       <menu-search-box />
 
-      <div class="row q-ml-md q-gutter-x-sm">
-        <a :href="repoUrl" target="_blank">
+      <div class="row q-ml-md q-gutter-x-md">
+        <q-btn unelevated round @click="handleToggleFullscreen">
+          <q-icon
+            :name="$q.fullscreen.isActive ? 'close_fullscreen' : 'fullscreen'"
+            color="white"
+            size="1.5rem"
+          />
+        </q-btn>
+
+        <q-btn unelevated round :href="repoUrl" target="_blank">
           <q-icon name="ion-logo-github" color="white" size="1.5rem" />
-        </a>
-        <a :href="bugUrl" target="_blank">
+        </q-btn>
+
+        <q-btn unelevated round :href="bugUrl" target="_blank">
           <q-icon name="bug_report" color="white" size="1.5rem" />
-        </a>
+        </q-btn>
       </div>
     </q-toolbar>
 
@@ -33,13 +42,24 @@ import BreadcrumbView from 'layouts/components/BreadcrumbView.vue'
 import MenuSearchBox from 'components/MenuSearchBox.vue'
 import { repository, bugs } from '../../../package.json'
 import TabView from 'layouts/components/TabView.vue'
+import { useQuasar } from 'quasar'
 
+defineOptions({ name: 'HeaderView' })
+
+const $q = useQuasar()
 const sidebarStore = useSidebarStore()
 
 const repoUrl = repository.url
 const bugUrl = bugs.url
 
-defineOptions({ name: 'HeaderView' })
+/**
+ * toggle fullscreen
+ * @author shiloh
+ * @date 2025/3/27 15:05
+ */
+async function handleToggleFullscreen() {
+  await $q.fullscreen.toggle()
+}
 </script>
 
 <style scoped></style>
