@@ -78,6 +78,7 @@ import type { QTableColumn } from 'quasar'
 import { useQuasar } from 'quasar'
 import type { User } from './models'
 import httpClient from 'src/utils/http'
+import { useAppStore } from 'stores/app'
 
 defineOptions({ name: 'UserView' })
 const $q = useQuasar()
@@ -149,8 +150,11 @@ const selectedUsers = ref<User[]>([])
 
 // region fetch users
 
+const appStore = useAppStore()
+
 const getUsers = async () => {
   loading.value = true
+  appStore.showLoading()
   try {
     const res = await httpClient.instance.get<User[]>('/users')
     users.value = res.data
@@ -162,6 +166,7 @@ const getUsers = async () => {
       timeout: 3000,
     })
   } finally {
+    appStore.hideLoading()
     loading.value = false
   }
 }

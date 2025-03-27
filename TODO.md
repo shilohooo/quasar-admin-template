@@ -4,7 +4,7 @@
 - [x] Auto expand sidebar menu after clicking on a search result
 - [x] Tabs of sidebar menu
 - [x] Display progress bar when loading a page
-- [ ] Axios request spinner
+- [x] Axios request spinner
 - [ ] Dashboard
 - [ ] Dark Mode
 - [ ] i18n

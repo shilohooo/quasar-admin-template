@@ -7,6 +7,8 @@ import { type AxiosRequestConfig, type AxiosResponse, HttpStatusCode } from 'axi
 import { api } from 'boot/axios'
 import type { ApiResult, AxiosTransform } from 'src/types/http-client'
 import { Notify } from 'quasar'
+import { useAppStore } from 'stores/app'
+const appStore = useAppStore()
 
 const transform: AxiosTransform = {
   /**
@@ -63,6 +65,7 @@ const httpClient = {
    * @date 2025/2/6 21:18
    */
   request<T = unknown>(config: AxiosRequestConfig): Promise<T> {
+    appStore.showLoading()
     return new Promise((resolve, reject) => {
       this.instance
         .request<unknown, AxiosResponse<ApiResult<T>>>(config)
@@ -82,6 +85,9 @@ const httpClient = {
         .catch((error) => {
           console.error('request error', error)
           reject(error)
+        })
+        .finally(() => {
+          appStore.hideLoading()
         })
     })
   },
