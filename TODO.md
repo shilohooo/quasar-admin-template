@@ -6,6 +6,7 @@
 - [x] Display progress bar when loading a page
 - [x] Axios request spinner
 - [ ] Dashboard
+- [ ] Content area fullscreen
 - [ ] i18n
 - [ ] Mock server
 - [ ] Dark Mode
