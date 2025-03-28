@@ -4,7 +4,7 @@ export const ICON_SET: QuasarIconSets[] = [
   'material-icons',
   // 'eva-icons',
   'ionicons-v4',
-  // 'mdi-v7',
+  'mdi-v7',
   // 'fontawesome-v6'
   // 'themify',
   // 'line-awesome',
