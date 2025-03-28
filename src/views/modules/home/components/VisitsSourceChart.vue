@@ -4,7 +4,11 @@
   * @date 2025/3/27 22:28
 -->
 <template>
-  <div ref="chartDom" style="height: 300px"></div>
+  <q-card>
+    <q-card-section>
+      <div ref="chartDom" style="height: 300px"></div>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script setup lang="ts">
@@ -15,6 +19,9 @@ type EChartsOption = echarts.EChartsOption
 const chartDom = ref<HTMLDivElement | null>(null)
 
 const option: EChartsOption = {
+  title: {
+    text: 'Visits Source',
+  },
   tooltip: {
     trigger: 'item',
   },
@@ -22,9 +29,14 @@ const option: EChartsOption = {
     top: '5%',
     left: 'center',
   },
+  toolbox: {
+    feature: {
+      saveAsImage: {},
+    },
+  },
   series: [
     {
-      name: 'Access From',
+      name: 'Visits Source',
       type: 'pie',
       radius: ['40%', '70%'],
       avoidLabelOverlap: false,

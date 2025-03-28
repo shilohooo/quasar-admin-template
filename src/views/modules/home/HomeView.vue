@@ -1,5 +1,6 @@
 <template>
-  <div class="row">
+  <div class="row q-gutter-y-md q-mb-md">
+    <visits-card class="col-12" />
     <traffic-trend-chart class="col-12" />
     <visits-source-chart class="col-6" />
     <visits-number-chart class="col-6" />
@@ -10,6 +11,7 @@
 import TrafficTrendChart from 'src/views/modules/home/components/TrafficTrendChart.vue'
 import VisitsSourceChart from 'src/views/modules/home/components/VisitsSourceChart.vue'
 import VisitsNumberChart from 'src/views/modules/home/components/VisitsNumberChart.vue'
+import VisitsCard from 'src/views/modules/home/components/visits-card/index.vue'
 </script>
 
 <style scoped lang="scss"></style>

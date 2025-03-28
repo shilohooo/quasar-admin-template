@@ -4,7 +4,11 @@
   * @date 2025/3/27 22:26
 -->
 <template>
-  <div ref="chartDom" style="height: 450px"></div>
+  <q-card>
+    <q-card-section>
+      <div ref="chartDom" style="height: 450px"></div>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script setup lang="ts">
@@ -17,7 +21,7 @@ const chartDom = ref<HTMLDivElement | null>(null)
 const option: EChartsOption = {
   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
   title: {
-    text: 'Gradient Stacked Area Chart',
+    text: 'Traffic Trend',
   },
   tooltip: {
     trigger: 'axis',
@@ -29,7 +33,8 @@ const option: EChartsOption = {
     },
   },
   legend: {
-    data: ['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5'],
+    // 流量访问方式
+    data: ['Desktop', 'Mobile', 'Tablet', 'Browser', 'Other'],
   },
   toolbox: {
     feature: {
@@ -56,7 +61,7 @@ const option: EChartsOption = {
   ],
   series: [
     {
-      name: 'Line 1',
+      name: 'Desktop',
       type: 'line',
       stack: 'Total',
       smooth: true,
@@ -83,7 +88,7 @@ const option: EChartsOption = {
       data: [140, 232, 101, 264, 90, 340, 250],
     },
     {
-      name: 'Line 2',
+      name: 'Mobile',
       type: 'line',
       stack: 'Total',
       smooth: true,
@@ -110,7 +115,7 @@ const option: EChartsOption = {
       data: [120, 282, 111, 234, 220, 340, 310],
     },
     {
-      name: 'Line 3',
+      name: 'Tablet',
       type: 'line',
       stack: 'Total',
       smooth: true,
@@ -137,7 +142,7 @@ const option: EChartsOption = {
       data: [320, 132, 201, 334, 190, 130, 220],
     },
     {
-      name: 'Line 4',
+      name: 'Browser',
       type: 'line',
       stack: 'Total',
       smooth: true,
@@ -164,7 +169,7 @@ const option: EChartsOption = {
       data: [220, 402, 231, 134, 190, 230, 120],
     },
     {
-      name: 'Line 5',
+      name: 'Other',
       type: 'line',
       stack: 'Total',
       smooth: true,
