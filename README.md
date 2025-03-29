@@ -4,16 +4,17 @@ A Quasar admin template with simple dynamic route config:).
 
 ## Stack
 
-| Name       | Version  | Remark |
-|------------|----------|--------|
-| Vue        | ^3.4.18  |        |
-| Quasar     | ^2.16.0  |        |
-| Pinia      | ^2.0.11  |        |
-| Vue Router | ^4.0.12  |        |
-| Axios      | ^1.2.1   |        |
-| DayJs      | ^1.11.13 |        |
-| NProgress  | ^0.2.0   |        |
-| ECharts    | ^5.6.0   |        |
+| Name        | Version  | Remark |
+|-------------|----------|--------|
+| Vue         | ^3.4.18  |        |
+| Quasar      | ^2.16.0  |        |
+| Pinia       | ^2.0.11  |        |
+| Vue Router  | ^4.0.12  |        |
+| Axios       | ^1.2.1   |        |
+| DayJs       | ^1.11.13 |        |
+| NProgress   | ^0.2.0   |        |
+| ECharts     | ^5.6.0   |        |
+| vue-echarts | ^7.0.3   |        |
 
 ## Install the dependencies
 
