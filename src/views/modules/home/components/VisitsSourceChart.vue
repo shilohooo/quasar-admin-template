@@ -4,19 +4,11 @@
   * @date 2025/3/27 22:28
 -->
 <template>
-  <q-card>
-    <q-card-section>
-      <div ref="chartDom" style="height: 300px"></div>
-    </q-card-section>
-  </q-card>
+  <my-chart :option="option" />
 </template>
 
 <script setup lang="ts">
-import * as echarts from 'echarts'
-
-type EChartsOption = echarts.EChartsOption
-
-const chartDom = ref<HTMLDivElement | null>(null)
+import MyChart, { type EChartsOption } from 'components/echarts/MyChart.vue'
 
 const option: EChartsOption = {
   title: {
@@ -68,11 +60,6 @@ const option: EChartsOption = {
     },
   ],
 }
-
-onMounted(() => {
-  const myChart = echarts.init(chartDom.value)
-  myChart.setOption(option)
-})
 </script>
 
 <style scoped></style>

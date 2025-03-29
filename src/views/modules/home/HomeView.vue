@@ -1,5 +1,5 @@
 <template>
-  <div class="row q-gutter-y-md q-mb-md">
+  <div class="row q-gutter-y-md">
     <visits-card class="col-12" />
     <traffic-trend-chart class="col-12" />
     <div class="row col-12 justify-between">
