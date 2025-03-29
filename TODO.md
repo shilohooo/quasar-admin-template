@@ -9,5 +9,6 @@
 - [ ] Content area fullscreen
 - [ ] i18n
 - [ ] Mock server
+- [ ] Responsive
 - [ ] Dark Mode
 - [ ] GitHub Actions - use appleboy/scp-action instead of cross-the-world/ssh-scp-ssh-pipelines
