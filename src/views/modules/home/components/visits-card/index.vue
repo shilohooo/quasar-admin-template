@@ -4,10 +4,10 @@
   * @date 2025/3/28 14:56
 -->
 <template>
-  <div class="row">
-    <user-number-card class="col" />
-    <usage-times-card class="col" />
-    <download-times-card class="col" />
+  <div class="row justify-between">
+    <user-number-card class="col-3" />
+    <usage-times-card class="col-3" />
+    <download-times-card class="col-3" />
   </div>
 </template>
 

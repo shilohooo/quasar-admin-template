@@ -2,8 +2,10 @@
   <div class="row q-gutter-y-md q-mb-md">
     <visits-card class="col-12" />
     <traffic-trend-chart class="col-12" />
-    <visits-source-chart class="col-6" />
-    <visits-number-chart class="col-6" />
+    <div class="row col-12 justify-between">
+      <visits-source-chart class="col-5" />
+      <visits-number-chart class="col-5" />
+    </div>
   </div>
 </template>
 
