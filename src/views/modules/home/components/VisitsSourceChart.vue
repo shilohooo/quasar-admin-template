@@ -26,7 +26,7 @@ const option: EChartsOption = {
     trigger: 'item',
   },
   legend: {
-    top: '5%',
+    bottom: 0,
     left: 'center',
   },
   toolbox: {
