@@ -3,6 +3,7 @@
 
 import { defineConfig } from '#q-app/wrappers'
 import AutoImport from 'unplugin-auto-import/vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -67,6 +68,12 @@ export default defineConfig((/* ctx */) => {
         AutoImport({
           imports: ['vue', 'vue-router'],
           dts: 'src/types/auto-import.d.ts',
+        }),
+        visualizer({
+          open: true,
+          filename: 'stats.html',
+          gzipSize: true,
+          brotliSize: true,
         }),
       ],
     },
