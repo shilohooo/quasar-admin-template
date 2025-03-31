@@ -6,7 +6,7 @@
 - [x] Display progress bar when loading a page
 - [x] Axios request spinner
 - [ ] Dashboard
-- [ ] Content area fullscreen
+- [ ] Content area maximization
 - [ ] i18n
 - [ ] Mock server
 - [ ] Responsive
