@@ -9,6 +9,10 @@ export const useSidebarStore = defineStore('sidebar', () => {
     collapsed.value = !collapsed.value
   }
 
+  const setCollapsed = (val: boolean) => {
+    collapsed.value = val
+  }
+
   const catalogRefs = ref<Record<string, QExpansionItem>>({})
 
   const addCatalogRef = (menu: Menu, el: QExpansionItem) => {
@@ -28,6 +32,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
   return {
     collapsed,
     toggleCollapsed,
+    setCollapsed,
     catalogRefs,
     addCatalogRef,
     getCatalogRef,

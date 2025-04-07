@@ -5,8 +5,8 @@
 - [x] Tabs of sidebar menu
 - [x] Display progress bar when loading a page
 - [x] Axios request spinner
-- [ ] Dashboard
-- [ ] Content area maximization
+- [x] Dashboard
+- [x] Content area maximization
 - [ ] i18n
 - [ ] Mock server
 - [ ] Responsive

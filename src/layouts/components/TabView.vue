@@ -32,10 +32,6 @@
     </q-tabs>
 
     <div>
-      <!--      <q-tabs no-caps inline-label dense shrink stretch>-->
-      <!--        <q-tab icon="keyboard_arrow_down" />-->
-      <!--        <q-tab :icon="isFullscreen ? 'close_fullscreen' : 'fullscreen'" @click="handleFullscreen" />-->
-      <!--      </q-tabs>-->
       <q-btn-group unelevated>
         <q-btn-dropdown dropdown-icon="more_vert">
           <q-list>
@@ -53,11 +49,11 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-close-popup @click="handleFullscreen">
+            <q-item clickable v-close-popup @click="handleContentAreaFullscreen">
               <q-item-section>
                 <q-item-label>
-                  <q-icon :name="isFullscreen ? 'close_fullscreen' : 'fullscreen'" />
-                  {{ isFullscreen ? 'Restore' : 'Maximize' }}
+                  <q-icon :name="$q.fullscreen.isActive ? 'close_fullscreen' : 'fullscreen'" />
+                  {{ $q.fullscreen.isActive ? 'Restore' : 'Maximize' }}
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -137,11 +133,6 @@
             </q-item>
           </q-list>
         </q-btn-dropdown>
-
-        <q-btn
-          :icon="isFullscreen ? 'close_fullscreen' : 'fullscreen'"
-          @click.stop="handleFullscreen"
-        />
       </q-btn-group>
     </div>
   </div>
@@ -150,6 +141,8 @@
 <script setup lang="ts">
 import { type Tab, useTabStore } from 'stores/tab'
 import { HOME_MENU } from 'src/router/routes/menu.data'
+import { useSidebarStore } from 'stores/sidebar'
+import { useQuasar } from 'quasar'
 
 const tabStore = useTabStore()
 const router = useRouter()
@@ -167,22 +160,21 @@ async function handleCloseTab(tab: Tab) {
   tabStore.setActiveTab(lastTab ?? HOME_MENU)
 }
 
-const isFullscreen = ref(false)
+const $q = useQuasar()
+const sidebarStore = useSidebarStore()
 
 /**
- * fullscreen
+ * content area fullscreen
  * @author shiloh
  * @date 2025/3/22 11:07
  */
-async function handleFullscreen() {
-  if (!document.fullscreenElement) {
-    await document.documentElement.requestFullscreen()
-    isFullscreen.value = true
-    return
+async function handleContentAreaFullscreen() {
+  await $q.fullscreen.toggle()
+  if ($q.fullscreen.isActive) {
+    sidebarStore.setCollapsed(true)
+  } else {
+    sidebarStore.setCollapsed(false)
   }
-
-  await document.exitFullscreen()
-  isFullscreen.value = false
 }
 
 /**
