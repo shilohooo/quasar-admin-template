@@ -1,96 +1,80 @@
 <template>
-  <q-card>
-    <q-tabs
-      v-model="activeTabName"
-      inline-label
-      active-class="text-primary"
-      dense
-      align="justify"
-      narrow-indicator
-    >
-      <q-tab
-        v-for="tab in tabs"
-        :name="tab.name"
-        :key="tab.name"
-        :icon="tab.icon"
-        :label="tab.label"
-        no-caps
-      />
-    </q-tabs>
+  <div class="flex q-pa-sm" style="gap: 1rem">
+    <div style="flex: 1">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6 flex q-gutter-x-xs items-center">
+            <span>Dependencies</span>
+            <q-badge color="positive">{{ deps.length }}</q-badge>
+          </div>
+        </q-card-section>
+        <q-card-section>
+          <q-scroll-area style="height: 700px">
+            <q-list bordered separator dense>
+              <q-item v-for="dep in deps" :key="dep.name" clickable>
+                <q-item-section>
+                  {{ dep.name }}
+                </q-item-section>
+                <q-item-section side>
+                  <q-badge>{{ dep.version }}</q-badge>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-scroll-area>
+        </q-card-section>
+      </q-card>
+    </div>
 
-    <q-separator />
-
-    <q-tab-panels
-      v-model="activeTabName"
-      animated
-      transition-next="jump-up"
-      transition-prev="jump-up"
-      swipeable
-    >
-      <q-tab-panel v-for="tab in tabs" :key="tab.name" :name="tab.name">
-        <vue-json-pretty :data="tab.content as unknown as JSONDataType" :deep="1" />
-      </q-tab-panel>
-    </q-tab-panels>
-  </q-card>
+    <div style="flex: 1">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6 flex q-gutter-x-xs items-center">
+            <span>DevDependencies</span>
+            <q-badge color="accent">{{ devDeps.length }}</q-badge>
+          </div>
+        </q-card-section>
+        <q-card-section>
+          <q-scroll-area style="height: 700px">
+            <q-list bordered separator dense>
+              <q-item v-for="dep in devDeps" :key="dep.name">
+                <q-item-section>
+                  {{ dep.name }}
+                </q-item-section>
+                <q-item-section side>
+                  <q-badge color="secondary">{{ dep.version }}</q-badge>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-scroll-area>
+        </q-card-section>
+      </q-card>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import VueJsonPretty from 'vue-json-pretty'
-import 'vue-json-pretty/lib/styles.css'
-import type { QVueGlobals } from 'quasar'
-import { useQuasar } from 'quasar'
-import type { JSONDataType } from 'vue-json-pretty/types/utils'
+import { dependencies, devDependencies } from '../../package.json'
 
 defineOptions({
   name: 'IndexPage',
 })
 
-const activeTabName = ref('version')
-
-export interface QuasarInfoTab {
+type Dep = {
   name: string
-  label: string
-  icon: string
-  content: QVueGlobals[keyof QVueGlobals]
+  version: string
 }
 
-const $q = useQuasar()
-const tabs: QuasarInfoTab[] = [
-  {
-    name: 'version',
-    label: 'Version',
-    icon: 'info',
-    content: $q.version,
-  },
-  {
-    name: 'dark',
-    label: 'Dark',
-    icon: 'dark_mode',
-    content: $q.dark,
-  },
-  {
-    name: 'platform',
-    label: 'Platform',
-    icon: 'computer',
-    content: $q.platform,
-  },
-  {
-    name: 'screen',
-    label: 'Screen',
-    icon: 'monitor',
-    content: $q.screen,
-  },
-  {
-    name: 'lang',
-    label: 'Language',
-    icon: 'language',
-    content: $q.lang,
-  },
-  {
-    name: 'iconSet',
-    label: 'IconSet',
-    icon: 'add_reaction',
-    content: $q.iconSet,
-  },
-]
+const deps = ref<Dep[]>([])
+const devDeps = ref<Dep[]>([])
+
+onMounted(async () => {
+  deps.value = Object.entries(dependencies).map(([name, version]) => ({
+    name,
+    version,
+  }))
+  devDeps.value = Object.entries(devDependencies).map(([name, version]) => ({
+    name,
+    version,
+  }))
+})
 </script>
