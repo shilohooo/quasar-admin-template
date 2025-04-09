@@ -11,4 +11,5 @@
 - [ ] Mock server
 - [ ] Responsive
 - [ ] Dark Mode
+- [ ] ESLint airbnb plugin for code style
 - [ ] GitHub Actions - use appleboy/scp-action instead of cross-the-world/ssh-scp-ssh-pipelines
