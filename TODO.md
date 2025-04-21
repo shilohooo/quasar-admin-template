@@ -12,4 +12,5 @@
 - [ ] Responsive
 - [ ] Dark Mode
 - [ ] ESLint airbnb plugin for code style
+- [ ] Using [Plop](https://github.com/plopjs/plop) to create route page's code
 - [ ] GitHub Actions - use appleboy/scp-action instead of cross-the-world/ssh-scp-ssh-pipelines
