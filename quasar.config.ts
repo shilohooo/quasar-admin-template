@@ -41,7 +41,7 @@ export default defineConfig((/* ctx */) => {
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      // publicPath: '/',
+      publicPath: '/quasar-admin/',
       // analyze: true,
       // env: {},
       // rawDefine: {}
